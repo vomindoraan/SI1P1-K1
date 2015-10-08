@@ -1,27 +1,27 @@
-﻿        A = 1
-        B = 2
-        D = 3
-        R = 4
-        
-        ORG 8
-        
-petlja: IN A, 2             ; Ucitava A i B odjednom
-        BEQ B, 0, kraj
-        JSR deljiv
-        OUT D
-        BEQ D, 0, petlja    ; Dok god nije deljivo, ponavljaj
-        
-kraj:   STOP
-        
-    ;;; Potprogrami ;;;
+﻿		A = 1
+		B = 2
+		D = 3
+		R = 4
+		
+		ORG 8
+		
+petlja:	IN A, 2				; Ucitava A i B odjednom
+		BEQ B, 0, kraj
+		JSR deljiv
+		OUT D
+		BEQ D, 0, petlja	; Dok god nije deljivo, ponavljaj
+		
+kraj:	STOP
+		
+	;;; Potprogrami ;;;
 
 deljiv: DIV R, A, B
-        MUL R, R, B
-        SUB R, A, R         ; R je ostatak pri deljenju A / B
-        
-        BEQ R, 0, jeste
-        MOV D, 0
-        RTS
-        
-jeste:  MOV D, 1            ; U D se cuva da li je deljivo
-        RTS
+		MUL R, R, B
+		SUB R, A, R			; R je ostatak pri deljenju A / B
+		
+		BEQ R, 0, jeste
+		MOV D, 0
+		RTS
+		
+jeste:	MOV D, 1			; U D se cuva da li je deljivo
+		RTS

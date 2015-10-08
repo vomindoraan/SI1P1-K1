@@ -1,50 +1,50 @@
-﻿        N = 1
-        MAX = 2
-        A = 3
-        B = 4
-        A_LAST = 5
-        NEXT = 6
-        L = 7
-        
-        A_START = 100
-        B_START = 200
-        
-        ORG 8
-        
-        MOV MAX, 100
-        MOV A, #A_START
-        MOV B, #B_START
-        
-        IN N
-        BGT 0, N, kraj
-        BEQ N, 0, kraj
-        BGT N, MAX, kraj
-        
-        IN (A), N
-        ADD A_LAST, A, N
-        SUB A_LAST, A_LAST, 1   ; Umanjuje se da bi pokazivalo na posl. el. niza
-        
-        IN (B), N
-        
-        MOV L, N    ; L je br. elem. koje treba pomeriti, ako do pomeranja dodje
-        
-petlja: SUB L, L, 1             ; L se koristi kao brojac za petlju (downto)
-        BGT 0, L, dalje         ; Izlaz iz petlje
-        BEQ (B), 0, pomeri      ; (B) == 0
-        ADD A, A, 1             ; (B) != 0 Ne dolazi do pomeranja, idemo dalje
-        ADD B, B, 1
-        BEQ N, N, petlja        ; Bezuslovni skok
+﻿		N = 1
+		MAX = 2
+		A = 3
+		B = 4
+		A_LAST = 5
+		NEXT = 6
+		L = 7
+		
+		A_START = 100
+		B_START = 200
+		
+		ORG 8
+		
+		MOV MAX, 100
+		MOV A, #A_START
+		MOV B, #B_START
+		
+		IN N
+		BGT 0, N, kraj
+		BEQ N, 0, kraj
+		BGT N, MAX, kraj
+		
+		IN (A), N
+		ADD A_LAST, A, N
+		SUB A_LAST, A_LAST, 1	; Umanjuje se da bi pokazivalo na posl. el. niza
+		
+		IN (B), N
+		
+		MOV L, N	; L je br. elem. koje treba pomeriti, ako do pomeranja dodje
+		
+petlja:	SUB L, L, 1				; L se koristi kao brojac za petlju (downto)
+		BGT 0, L, dalje			; Izlaz iz petlje
+		BEQ (B), 0, pomeri		; (B) == 0
+		ADD A, A, 1				; (B) != 0 Ne dolazi do pomeranja, idemo dalje
+		ADD B, B, 1
+		BEQ N, N, petlja		; Bezuslovni skok
 
-pomeri: ADD NEXT, A, 1
-        MOV (A), (NEXT), L      ; Pomeramo sve sledece elem. u nizu za 1 unazad
-        MOV (A_LAST), 0         ; Ne ostavljamo smece
-        SUB A_LAST, A_LAST, 1
-        ADD NEXT, B, 1          ; Treba da pomerimo i elemente B unazad
-        MOV (B), (NEXT), L
-        SUB N, N, 1             ; Izbacili smo elem, pa smanjujemo br. el. za 1
-        BEQ N, N, petlja        ; Bezuslovni skok
-        
-dalje:  MOV A, #A_START         ; A se pomerilo, vracamo ga na pocetnu adresu
-        OUT (A), N
-        
-kraj:   STOP
+pomeri:	ADD NEXT, A, 1
+		MOV (A), (NEXT), L		; Pomeramo sve sledece elem. u nizu za 1 unazad
+		MOV (A_LAST), 0			; Ne ostavljamo smece
+		SUB A_LAST, A_LAST, 1
+		ADD NEXT, B, 1			; Treba da pomerimo i elemente B unazad
+		MOV (B), (NEXT), L
+		SUB N, N, 1				; Izbacili smo elem, pa smanjujemo br. el. za 1
+		BEQ N, N, petlja		; Bezuslovni skok
+		
+dalje:	MOV A, #A_START			; A se pomerilo, vracamo ga na pocetnu adresu
+		OUT (A), N
+		
+kraj:	STOP

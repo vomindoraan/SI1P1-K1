@@ -1,71 +1,71 @@
-﻿        N = 1
-        MAX = 2
-        A = 3
-        B = 4
-        C = 5
-        I = 6
-        
-        A_START = 100
-        B_START = 200
-        C_START = 300
-        
-        ORG 8
-        
-        MOV MAX, 100
-        MOV A, #A_START
-        MOV B, #B_START
-        
-ponovi: IN N
-        BGT 0, N, kraj
-        BEQ N, 0, kraj
-        BGT N, MAX, kraj
-        
-        MOV I, 0
-unos1:  IN (A)
-        MOV C, 1
-        BGT C, (A), unos1
-        MOV C, 10
-        BGT (A), C, unos1
-        ADD A, A, 1
-        ADD I, I, 1
-        BGT N, I, unos1
-        
-        MOV I, 0
-unos2:  IN (B)
-        MOV C, 1
-        BGT C, (B), unos2
-        MOV C, 10
-        BGT (B), C, unos2
-        ADD B, B, 1
-        ADD I, I, 1
-        BGT N, I, unos2
-        
-        JSR treci
-        OUT (C), N
+﻿		N = 1
+		MAX = 2
+		A = 3
+		B = 4
+		C = 5
+		I = 6
+		
+		A_START = 100
+		B_START = 200
+		C_START = 300
+		
+		ORG 8
+		
+		MOV MAX, 100
+		MOV A, #A_START
+		MOV B, #B_START
+		
+ponovi:	IN N
+		BGT 0, N, kraj
+		BEQ N, 0, kraj
+		BGT N, MAX, kraj
+		
+		MOV I, 0
+unos1:	IN (A)
+		MOV C, 1
+		BGT C, (A), unos1
+		MOV C, 10
+		BGT (A), C, unos1
+		ADD A, A, 1
+		ADD I, I, 1
+		BGT N, I, unos1
+		
+		MOV I, 0
+unos2:	IN (B)
+		MOV C, 1
+		BGT C, (B), unos2
+		MOV C, 10
+		BGT (B), C, unos2
+		ADD B, B, 1
+		ADD I, I, 1
+		BGT N, I, unos2
+		
+		JSR treci
+		OUT (C), N
 
-        BEQ N, N, ponovi
-        
-kraj:   STOP
+		BEQ N, N, ponovi
+		
+kraj:	STOP
 
-    ;;; Potprogrami ;;;
-    
-treci:  MOV A, #A_START
-        MOV B, #B_START
-        MOV C, #C_START
-        
-        MOV I, 0
-stepen: MOV (C), 1
+	;;; Potprogrami ;;;
+	
+treci:	MOV A, #A_START
+		MOV B, #B_START
+		MOV C, #C_START
+		
+		MOV I, 0
+stepen:	MOV (C), 1
 
-petlja: MUL (C), (C), (A)
-        SUB (B), (B), 1
-        BGT (B), 0, petlja
-        
-        ADD A, A, 1
-        ADD B, B, 1
-        ADD C, C, 1
-        ADD I, I, 1
-        BGT N, I, stepen
-        
-        MOV C, #C_START
-        
-        RTS
+petlja:	MUL (C), (C), (A)
+		SUB (B), (B), 1
+		BGT (B), 0, petlja
+		
+		ADD A, A, 1
+		ADD B, B, 1
+		ADD C, C, 1
+		ADD I, I, 1
+		BGT N, I, stepen
+		
+		MOV C, #C_START
+		
+		RTS

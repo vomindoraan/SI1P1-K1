@@ -1,40 +1,40 @@
-﻿        N = 1
-        MAX = 2
-        A = 3
-        B = 4
-        I = 5
-        J = 6
-        
-        A_START = 100
-        B_START = 200
-        
-        ORG 8
-        
-        MOV MAX, 100
-        MOV A, #A_START
-        MOV B, #B_START
-        
-        IN N
-        BGT 0, N, kraj
-        BEQ N, 0, kraj
-        BGT N, MAX, kraj
-        
-        IN (A), N
-        IN (B), N
-        
-        MOV I, 0    ; I je brojac za koliko smo elemenata proverili
-        MOV J, A    ; J cuva adresu mesta gde je neki element niza A izbacen
-        
-petlja: ADD A, #A_START, I
-        ADD B, #B_START, I
-        BEQ (B), 0, preskok     ; (B)==0 Br. se izbacuje, pa J ostaje na toj adr
-        MOV (J), (A)            ; (B)!=0 Br. ostaje u nizu, pomeramo ga u adr. J
-        ADD J, J, 1             ; Posto je mesto izbacenog el. popunjeno, J++
-preskok:ADD I, I, 1             ; I se u oba slucaja uvecava
-        BGT N, I, petlja
-        
-        SUB N, J, #A_START      ; Azuriramo broj el. u nizu A posle skracivanja
-        MOV A, #A_START         ; A se pomerilo, vracamo ga na pocetnu adresu
-        OUT (A), N
-        
-kraj:   STOP
+﻿		N = 1
+		MAX = 2
+		A = 3
+		B = 4
+		I = 5
+		J = 6
+		
+		A_START = 100
+		B_START = 200
+		
+		ORG 8
+		
+		MOV MAX, 100
+		MOV A, #A_START
+		MOV B, #B_START
+		
+		IN N
+		BGT 0, N, kraj
+		BEQ N, 0, kraj
+		BGT N, MAX, kraj
+		
+		IN (A), N
+		IN (B), N
+		
+		MOV I, 0	; I je brojac za koliko smo elemenata proverili
+		MOV J, A	; J cuva adresu mesta gde je neki element niza A izbacen
+		
+petlja:	ADD A, #A_START, I
+		ADD B, #B_START, I
+		BEQ (B), 0, preskok		; (B)==0 Br. se izbacuje, pa J ostaje na toj adr
+		MOV (J), (A)			; (B)!=0 Br. ostaje u nizu, pomeramo ga u adr. J
+		ADD J, J, 1				; Posto je mesto izbacenog el. popunjeno, J++
+preskok:ADD I, I, 1				; I se u oba slucaja uvecava
+		BGT N, I, petlja
+		
+		SUB N, J, #A_START		; Azuriramo broj el. u nizu A posle skracivanja
+		MOV A, #A_START			; A se pomerilo, vracamo ga na pocetnu adresu
+		OUT (A), N
+		
+kraj:	STOP

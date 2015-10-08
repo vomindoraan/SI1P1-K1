@@ -1,40 +1,40 @@
-﻿        X = 1
-        Y = 2
-        C = 3
-        R = 4
-        ONE = 5
-        
-        ORG 8
-        
-        MOV ONE, 1
-        
-ponovi: IN X, 2             ; Ucitava X i Y odjednom
-        BEQ X, 0, kraj
-        BGT 0, Y, kraj
-        BEQ Y, 0, kraj
-        JSR stepen
-        OUT C
-        BEQ X, X, ponovi    ; Bezuslovni skok
+﻿		X = 1
+		Y = 2
+		C = 3
+		R = 4
+		ONE = 5
+		
+		ORG 8
+		
+		MOV ONE, 1
+		
+ponovi:	IN X, 2				; Ucitava X i Y odjednom
+		BEQ X, 0, kraj
+		BGT 0, Y, kraj
+		BEQ Y, 0, kraj
+		JSR stepen
+		OUT C
+		BEQ X, X, ponovi	; Bezuslovni skok
 
-kraj:   STOP
+kraj:	STOP
 
-    ;;; Potprogrami ;;;
+	;;; Potprogrami ;;;
 
-stepen: BEQ X, ONE, jeste   ; Specijalni slucaj: 1 = bilosta^0 => X jeste stepen
-        BEQ Y, ONE, nije    ; Posto X nije 1, ako Y jeste, X sigurno nije stepen
+stepen:	BEQ X, ONE, jeste	; Specijalni slucaj: 1 = bilosta^0 => X jeste stepen
+		BEQ Y, ONE, nije	; Posto X nije 1, ako Y jeste, X sigurno nije stepen
 
-petlja: DIV R, X, Y
-        MUL R, R, Y
-        SUB R, X, R         ; R je ostatak pri deljenju X / Y
-        
-        BEQ R, 0, preskok   ; R == 0
-        BEQ X, X, nije      ; R != 0 Ako se bilo kad javi ostatak, X nije stepen
-preskok:BEQ X, Y, jeste     ; Ako X = Y, a da pritom nema ostatak, X je stepen Y
-        DIV X, X, Y         ; Iterativno delimo X sa Y i priblizavamo ga Y
-        BEQ X, X, petlja    ; Bezuslovni skok
+petlja:	DIV R, X, Y
+		MUL R, R, Y
+		SUB R, X, R			; R je ostatak pri deljenju X / Y
+		
+		BEQ R, 0, preskok	; R == 0
+		BEQ X, X, nije		; R != 0 Ako se bilo kad javi ostatak, X nije stepen
+preskok:BEQ X, Y, jeste		; Ako X = Y, a da pritom nema ostatak, X je stepen Y
+		DIV X, X, Y			; Iterativno delimo X sa Y i priblizavamo ga Y
+		BEQ X, X, petlja	; Bezuslovni skok
 
-jeste:  MOV C, 1
-        RTS
-        
-nije:   MOV C, 0
-        RTS
+jeste:	MOV C, 1
+		RTS
+		
+nije:	MOV C, 0
+		RTS

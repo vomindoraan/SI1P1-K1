@@ -1,5 +1,13 @@
-﻿; I nacin: Pamti mesto gde je neki elem. izbacen i na njega smesta prvi sledeci
+﻿; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Prvi kolokvijum 2009/2010
+; Zadatak 1
+; I nacin: Pamti mesto gde je neki elem. izbacen i na njega smesta prvi sledeci
 ; "dobar" elem. na koji naidje. Efikasan, vrsi izbacivanje u jednom prolazu.
+;
+; (c) Konstantin Djordjevic 2014
 
         N = 1
         MAX = 2

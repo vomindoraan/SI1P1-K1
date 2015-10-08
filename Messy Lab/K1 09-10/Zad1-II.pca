@@ -1,7 +1,4 @@
-﻿; II nacin: Kad nadje u B el. = 0, pomera sve naredne el. u oba niza za 1 unazad
-; Ovaj nacin je neefikasniji, ali je lakse ocistiti smece koje ostane na kraju A
-
-        N = 1
+﻿        N = 1
         MAX = 2
         A = 3
         B = 4

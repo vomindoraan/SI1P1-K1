@@ -1,4 +1,13 @@
-﻿        N = 1
+﻿; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Ponovljen prvi kolokvijum 2009/2010
+; Zadatak 1
+;
+; (c) Konstantin Djordjevic 2014
+
+        N = 1
         K = 2
         A = 3
         AN = 4

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchMemento xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WatchItems>
+    <Watch>
+      <Name>N</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>MAX</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>A_START</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>A</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>I</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>MEAN</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>M</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>SUM</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>(A)</Name>
+      <Type>Signed</Type>
+    </Watch>
+  </WatchItems>
+</WatchMemento>

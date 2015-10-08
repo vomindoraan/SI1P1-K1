@@ -1,0 +1,41 @@
+                  n = 1
+                  k = 2
+                  a = 3
+                  an = 4
+                  ak = 5
+                  s1 = 6
+                  s2 = 7
+                  a_start = 100
+                  kraj = 28
+                  ispisi = 29
+                  sume = 30
+                  petlja1 = 34
+                  petlja2 = 41
+                  jednake = 49
+    8: 0308 0064  MOV a, #a_start
+   10: 7102       IN n, 2
+   11: 6018 001C  BGT 0, n, kraj
+   13: 5108 001C  BEQ n, 0, kraj
+   15: 6028 001C  BGT 0, k, kraj
+   17: 5208 001C  BEQ k, 0, kraj
+   19: 6218 001C  BGT k, n, kraj
+   21: 5218 001C  BEQ k, n, kraj
+   23: 7B81       IN (a), n
+   24: D000 001E  JSR sume
+   26: 5308 001D  BEQ a, 0, ispisi
+   28: F000       kraj: STOP 
+   29: F300       ispisi: STOP a
+   30: 1431       sume: ADD an, a, n
+   31: 1532       ADD ak, a, k
+   32: 0608 0000  MOV s1, 0
+   34: 166B       petlja1: ADD s1, s1, (a)
+   35: 9330 0001  ADD a, a, 1
+   37: 6538 0022  BGT ak, a, petlja1
+   39: 0708 0000  MOV s2, 0
+   41: 177B       petlja2: ADD s2, s2, (a)
+   42: 9330 0001  ADD a, a, 1
+   44: 6438 0029  BGT an, a, petlja2
+   46: 5678 0031  BEQ s1, s2, jednake
+   48: E000       RTS 
+   49: 0308 0000  jednake: MOV a, 0
+   51: E000       RTS 

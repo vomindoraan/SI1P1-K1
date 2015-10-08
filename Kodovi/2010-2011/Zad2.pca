@@ -1,0 +1,38 @@
+﻿        A = 1
+        S = 2
+        M = 3
+        H = 4
+        MAX = 5
+        V = 6
+        
+        ORG 8
+        
+        MOV MAX, 59         ; Proveravacemo da li S (ili M) nije vece od 59
+        
+petlja: MOV A, 100
+        JSR ucitaj
+        JSR validno
+        OUT V
+        BEQ V, 0, petlja    ; Dok god nije validno, ponavljaj
+        
+        STOP
+
+    ;;; Potprogrami ;;;
+
+ucitaj: IN (A), 3
+        MOV S, (A)          ; U S smesta vrednost na adresi 100
+        ADD A, A, 1
+        MOV M, (A)          ; U M smesta vrednost na adresi 101
+        ADD A, A, 1
+        MOV H, (A)          ; U H smesta vrednost na adresi 102
+        RTS
+
+validno:BGT 0, S, nije      ; Pozitivno im ovde znaci nenegativno, valjda...
+        BGT S, MAX, nije
+        BGT 0, M, nije
+        BGT M, MAX, nije
+        BGT 0, H, nije
+        MOV V, 1
+        RTS
+nije:   MOV V, 0
+        RTS

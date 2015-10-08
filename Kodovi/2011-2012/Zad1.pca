@@ -1,0 +1,56 @@
+﻿        N = 1
+        M = 2
+        A = 3
+        LAST = 4
+        PROD = 5
+        SUM = 6
+        T = 7
+        MEAN = 0
+        
+        A_START = 200
+        
+        ORG 8
+        
+        MOV M, 100
+        
+        IN N
+        BGT 0, N, kraj
+        BEQ N, 0, kraj
+        BGT N, M, kraj
+        
+        MOV A, #A_START
+        IN (A), N
+        ADD LAST, A, N
+        SUB LAST, LAST, 1   ; Umanjuje se da bi pokazivalo na posl. elem. niza
+        
+        MUL PROD, (A), (LAST)
+        MOV SUM, 0      ; 0 je podraz. vr, ali mozda bolje eksplicitno navesti
+        MOV M, 0        ; M se sad koristi kao brojac
+
+; II nacin: umanji adresu prvog za 1 da bi na startu ciklusa mogla da se uvecava
+;       SUB A, A, 1
+;petlja:    BEQ A, LAST, dalje
+;       ADD A, A, 1
+;       BGT PROD, (A), petlja
+;       BEQ PROD, (A), petlja
+;       MUL T, (A), (A)
+;       ADD SUM, SUM, T
+;       ADD N, N, 1
+;       BEQ N, N, petlja
+
+petlja: BGT A, LAST, dalje      ; Izlaz iz petlje
+        BGT (A), PROD, suma     ; Elem > Prod   Dodaj element na sumu
+        ADD A, A, 1             ; Elem <= Prod  Uvecaj adresu i nastavi petlju
+        BEQ N, N, petlja
+
+suma:   MUL T, (A), (A)
+        ADD SUM, SUM, T
+        ADD M, M, 1             ; Uvecava brojac nadjenih elemenata
+        ADD A, A, 1             ; Postavlja adresu na sledeci element
+        BEQ N, N, petlja        ; Bezuslovni skok
+
+dalje:  BEQ M, 0, kraj
+        DIV MEAN, SUM, M
+        OUT MEAN
+
+kraj:   STOP

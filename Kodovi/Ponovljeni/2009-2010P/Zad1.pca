@@ -1,0 +1,49 @@
+﻿        N = 1
+        K = 2
+        A = 3
+        AN = 4
+        AK = 5
+        S1 = 6
+        S2 = 7
+        
+        A_START = 100
+        
+        ORG 8
+        
+        MOV A, #A_START
+        
+        IN N, 2
+        BGT 0, N, kraj
+        BEQ N, 0, kraj
+        BGT 0, K, kraj
+        BEQ K, 0, kraj
+        BGT K, N, kraj
+        BEQ K, N, kraj
+        
+        IN (A), N
+        
+        JSR sume
+        
+        BEQ A, 0, ispisi
+kraj:   STOP
+ispisi: STOP A
+
+    ;;; Potprogrami ;;;
+    
+sume:   ADD AN, A, N
+        ADD AK, A, K
+        
+        MOV S1, 0
+petlja1:ADD S1, S1, (A)
+        ADD A, A, 1
+        BGT AK, A, petlja1
+        
+        MOV S2, 0
+petlja2:ADD S2, S2, (A)
+        ADD A, A, 1
+        BGT AN, A, petlja2
+        
+        BEQ S1, S2, jednake
+        RTS
+jednake:MOV A, 0
+        RTS

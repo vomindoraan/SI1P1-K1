@@ -1,0 +1,46 @@
+﻿        N = 1
+        MIN = 2
+        MAX = 3
+        A = 4
+        B = 5
+        END = 6
+        ABS = 7
+        
+        A_START = 100
+        
+        ORG 8
+        
+        MOV MIN, 2
+ponovi: MOV MAX, 100        ; Treba voditi racuna o MAX i A jer ih ciklus menja
+        MOV A, #A_START
+        
+        IN N
+        BGT MIN, N, kraj
+        BGT N, MAX, kraj
+        
+        IN (A), N
+        
+        ADD END, A, N       ; END pokazuje na adresu jedan posle zadnjeg elem. 
+        MOV MAX, 0          ; MAX se sad koristi za cuvanje najvece aps. vredn.
+        MOV ABS, 0
+        
+petlja: ADD B, A, 1
+        BEQ B, END, dalje       ; Prekini kada naredni element bude van petlje
+        JSR apsol
+        ADD A, A, 1
+        BGT MAX, ABS, petlja
+        MOV MAX, ABS
+        BEQ N, N, petlja        ; Bezuslovni skok
+        
+dalje:  OUT MAX
+        BEQ N, N, ponovi
+        
+kraj:   STOP
+
+    ;;; Potprogrami ;;;
+
+apsol:  BGT (B), (A), manje
+        SUB ABS, (A), (B)
+        RTS
+manje:  SUB ABS, (B), (A)
+        RTS

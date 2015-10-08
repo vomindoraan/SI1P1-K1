@@ -1,0 +1,42 @@
+﻿        A = 1   ; const
+        B = 2
+        T = 3
+        R = 4
+        ONE = 5
+        TWO = 6
+        
+        ORG 8
+        
+        MOV ONE, 1
+        MOV TWO, 2
+        
+ponovi: IN A
+        BGT 0, A, kraj
+        BEQ A, 0, kraj
+        MOV T, A            ; Ne smemo da menjamo A, pa koristimo pomocnu prom.
+        JSR stepen
+        OUT B
+        BEQ A, A, ponovi    ; Bezuslovni skok
+        
+kraj:   STOP
+
+    ;;; Potprogrami ;;;
+
+stepen: BEQ T, ONE, jeste   ; Specijalni slucaj: 1 = 2^0
+        
+petlja: DIV R, T, TWO
+        MUL R, R, TWO
+        SUB R, T, R         ; R je ostatak pri deljenju T / 2 (ili 0 ili 1)
+        
+        BGT R, 0, nije      ; Ako u bilo kom trenutku R != 0, T nije stepen 2
+        BEQ T, TWO, jeste   ; R je ovde 0, ako je i T = 2 onda T jeste stepen 2
+        DIV T, T, TWO
+        BEQ A, A, petlja    ; Ponavljamo postupak nalazenja ostatka i deljenja
+        
+jeste:  MOV B, 1
+        RTS
+        
+nije:   MOV B, 0
+        RTS
+        
+; Slicno kao K1 13-14 Zad2, malo drugacija logika proveravanja stepena

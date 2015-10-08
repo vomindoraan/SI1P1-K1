@@ -1,0 +1,37 @@
+                  n = 1
+                  max = 2
+                  a = 3
+                  a_end = 4
+                  b = 5
+                  a_start = 100
+                  b_start = 200
+                  ponovi = 14
+                  kraj = 21
+                  unos = 22
+                  konv = 31
+                  petlja = 32
+    8: 0208 0064  MOV max, 100
+   10: 0308 0064  MOV a, #a_start
+   12: 0508 00C8  MOV b, #b_start
+   14: D000 0016  ponovi: JSR unos
+   16: D000 001F  JSR konv
+   18: 8D81       OUT (b), n
+   19: 5118 000E  BEQ n, n, ponovi
+   21: F000       kraj: STOP 
+   22: 7101       unos: IN n
+   23: 6018 0015  BGT 0, n, kraj
+   25: 5108 0015  BEQ n, 0, kraj
+   27: 6128 0015  BGT n, max, kraj
+   29: 7B81       IN (a), n
+   30: E000       RTS 
+   31: 1431       konv: ADD a_end, a, n
+   32: ADB0 0020  petlja: SUB (b), (a), 32
+   34: BDD0 0005  MUL (b), (b), 5
+   36: CDD0 0009  DIV (b), (b), 9
+   38: 9DD0 0111  ADD (b), (b), 273
+   40: 9330 0001  ADD a, a, 1
+   42: 9550 0001  ADD b, b, 1
+   44: 6438 0020  BGT a_end, a, petlja
+   46: 0308 0064  MOV a, #a_start
+   48: 0508 00C8  MOV b, #b_start
+   50: E000       RTS 

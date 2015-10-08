@@ -1,0 +1,39 @@
+                  n = 1
+                  min = 2
+                  max = 3
+                  a = 4
+                  b = 5
+                  end = 6
+                  abs = 7
+                  a_start = 100
+                  ponovi = 12
+                  petlja = 25
+                  dalje = 38
+                  kraj = 41
+                  apsol = 42
+                  manje = 46
+    8: 0208 0002  MOV min, 2
+   10: 0408 0064  MOV a, #a_start
+   12: 0308 0064  ponovi: MOV max, 100
+   14: 7101       IN n
+   15: 6218 0029  BGT min, n, kraj
+   17: 6138 0029  BGT n, max, kraj
+   19: 7C81       IN (a), n
+   20: 1641       ADD end, a, n
+   21: 0308 0000  MOV max, 0
+   23: 0708 0000  MOV abs, 0
+   25: 9540 0001  petlja: ADD b, a, 1
+   27: 5568 0026  BEQ b, end, dalje
+   29: D000 002A  JSR apsol
+   31: 9440 0001  ADD a, a, 1
+   33: 6378 0019  BGT max, abs, petlja
+   35: 0370       MOV max, abs
+   36: 5118 0019  BEQ n, n, petlja
+   38: 8301       dalje: OUT max
+   39: 5118 000C  BEQ n, n, ponovi
+   41: F000       kraj: STOP 
+   42: 6DC8 002E  apsol: BGT (b), (a), manje
+   44: 27CD       SUB abs, (a), (b)
+   45: E000       RTS 
+   46: 27DC       manje: SUB abs, (b), (a)
+   47: E000       RTS 

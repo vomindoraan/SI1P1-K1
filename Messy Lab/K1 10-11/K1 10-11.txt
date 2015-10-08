@@ -1,0 +1,42 @@
+                  n = 1
+                  max = 2
+                  a = 3
+                  i = 4
+                  sum = 5
+                  mean = 6
+                  m = 7
+                  a_start = 0
+                  ponovi = 12
+                  petlja = 29
+                  preskok = 35
+                  kraj = 44
+                  ars = 45
+    8: 0208 0064  MOV max, 100
+   10: 0008 0096  MOV a_start, 150
+   12: 7101       ponovi: IN n
+   13: 6018 002C  BGT 0, n, kraj
+   15: 5108 002C  BEQ n, 0, kraj
+   17: 6128 002C  BGT n, max, kraj
+   19: 7881       IN (a_start), n
+   20: 0300       MOV a, a_start
+   21: 0408 0000  MOV i, 0
+   23: 0508 0000  MOV sum, 0
+   25: D000 002D  JSR ars
+   27: 0708 0000  MOV m, 0
+   29: 66B8 0023  petlja: BGT mean, (a), preskok
+   31: 56B8 0023  BEQ mean, (a), preskok
+   33: 9770 0001  ADD m, m, 1
+   35: 9330 0001  preskok: ADD a, a, 1
+   37: 9440 0001  ADD i, i, 1
+   39: 6148 001D  BGT n, i, petlja
+   41: 8701       OUT m
+   42: 5778 000C  BEQ m, m, ponovi
+   44: F000       kraj: STOP 
+   45: 155B       ars: ADD sum, sum, (a)
+   46: 9330 0001  ADD a, a, 1
+   48: 9440 0001  ADD i, i, 1
+   50: 6148 002D  BGT n, i, ars
+   52: 4651       DIV mean, sum, n
+   53: 0300       MOV a, a_start
+   54: 0408 0000  MOV i, 0
+   56: E000       RTS 

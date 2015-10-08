@@ -1,0 +1,45 @@
+﻿        N = 1
+        MAX = 2
+        A = 3
+        A_END = 4
+        B = 5
+        
+        A_START = 100
+        B_START = 200
+        
+        ORG 8
+        
+        MOV MAX, 100
+        MOV A, #A_START
+        MOV B, #B_START
+        
+ponovi: JSR unos
+        JSR konv
+        OUT (B), N
+        BEQ N, N, ponovi
+        
+kraj:   STOP
+
+    ;;; Potprogrami ;;;
+        
+unos:   IN N
+        BGT 0, N, kraj
+        BEQ N, 0, kraj
+        BGT N, MAX, kraj
+        IN (A), N
+        RTS
+        
+konv:   ADD A_END, A, N
+
+petlja: SUB (B), (A), 32
+        MUL (B), (B), 5
+        DIV (B), (B), 9
+        ADD (B), (B), 273
+        ADD A, A, 1
+        ADD B, B, 1
+        BGT A_END, A, petlja
+        
+        MOV A, #A_START
+        MOV B, #B_START
+        
+        RTS

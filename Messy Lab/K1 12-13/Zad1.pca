@@ -1,0 +1,68 @@
+﻿        N = 1
+        MAX = 2
+        A = 3
+        END = 4
+        DS3 = 5
+        DS7 = 6
+        R = 7
+        D = 0
+        
+        A_START   = 100     ; Pocetne adr. nizova (razmaci od 100 su bezbedni)
+        DS3_START = 200
+        DS7_START = 300
+        
+        ORG 8
+        
+        MOV MAX, 100
+        MOV A, #A_START
+        MOV DS3, #DS3_START
+        MOV DS7, #DS7_START
+        
+        IN N
+        BGT 0, N, kraj
+        BEQ N, 0, kraj
+        BGT N, MAX, kraj
+        
+        IN (A), N
+        
+        ADD END, A, N
+
+petlja: SUB END, END, 1     ; Iter. niza ide otpozadi, mozda bolje od napred
+        MOV D, 3            ; D cuva vrednost delioca za koji se trazi ostatak
+        JSR deljiv
+        BEQ R, 0, presk1    ; R postaje 1 ako je (END) delj. sa 3, u suprotnom 0
+        JSR ubaci3
+presk1: MOV D, 7
+        JSR deljiv
+        BEQ R, 0, presk2    ; R postaje 1 ako je (END) delj. sa 7, u suprotnom 0
+        JSR ubaci7
+presk2: BGT END, A, petlja
+
+        SUB N, DS3, #DS3_START  ; N je sad brojac, cuva duz. nizova za stampanje
+        MOV DS3, #DS3_START     ; DS3 je zbog ubaci3 doslo do kraja, vracamo ga
+        OUT (DS3), N
+        
+        SUB N, DS7, #DS7_START
+        MOV DS7, #DS7_START
+        OUT (DS7), N
+        
+kraj:   STOP
+
+    ;;; Potprogrami ;;;
+
+deljiv: DIV R, (END), D
+        MUL R, R, D
+        SUB R, (END), R     ; R je ostatak pri deljenju trenutnog elementa sa D
+        BEQ R, 0, jeste
+        MOV R, 0
+        RTS
+jeste:  MOV R, 1            ; Zbog ustede memorije u R se cuva da li je deljivo
+        RTS
+        
+ubaci3: MOV (DS3), (END)
+        ADD DS3, DS3, 1
+        RTS
+
+ubaci7: MOV (DS7), (END)
+        ADD DS7, DS7, 1
+        RTS

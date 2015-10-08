@@ -1,0 +1,60 @@
+                  n = 1
+                  max = 2
+                  a = 3
+                  b = 4
+                  c = 5
+                  i = 6
+                  a_start = 100
+                  b_start = 200
+                  c_start = 300
+                  ponovi = 14
+                  unos1 = 23
+                  unos2 = 40
+                  kraj = 60
+                  treci = 61
+                  stepen = 69
+                  petlja = 71
+    8: 0208 0064  MOV max, 100
+   10: 0308 0064  MOV a, #a_start
+   12: 0408 00C8  MOV b, #b_start
+   14: 7101       ponovi: IN n
+   15: 6018 003C  BGT 0, n, kraj
+   17: 5108 003C  BEQ n, 0, kraj
+   19: 6128 003C  BGT n, max, kraj
+   21: 0608 0000  MOV i, 0
+   23: 7B01       unos1: IN (a)
+   24: 0508 0001  MOV c, 1
+   26: 65B8 0017  BGT c, (a), unos1
+   28: 0508 000A  MOV c, 10
+   30: 6B58 0017  BGT (a), c, unos1
+   32: 9330 0001  ADD a, a, 1
+   34: 9660 0001  ADD i, i, 1
+   36: 6168 0017  BGT n, i, unos1
+   38: 0608 0000  MOV i, 0
+   40: 7C01       unos2: IN (b)
+   41: 0508 0001  MOV c, 1
+   43: 65C8 0028  BGT c, (b), unos2
+   45: 0508 000A  MOV c, 10
+   47: 6C58 0028  BGT (b), c, unos2
+   49: 9440 0001  ADD b, b, 1
+   51: 9660 0001  ADD i, i, 1
+   53: 6168 0028  BGT n, i, unos2
+   55: D000 003D  JSR treci
+   57: 8D81       OUT (c), n
+   58: 5118 000E  BEQ n, n, ponovi
+   60: F000       kraj: STOP 
+   61: 0308 0064  treci: MOV a, #a_start
+   63: 0408 00C8  MOV b, #b_start
+   65: 0508 012C  MOV c, #c_start
+   67: 0608 0000  MOV i, 0
+   69: 0D08 0001  stepen: MOV (c), 1
+   71: 3DDB       petlja: MUL (c), (c), (a)
+   72: ACC0 0001  SUB (b), (b), 1
+   74: 6C08 0047  BGT (b), 0, petlja
+   76: 9330 0001  ADD a, a, 1
+   78: 9440 0001  ADD b, b, 1
+   80: 9550 0001  ADD c, c, 1
+   82: 9660 0001  ADD i, i, 1
+   84: 6168 0045  BGT n, i, stepen
+   86: 0508 012C  MOV c, #c_start
+   88: E000       RTS 

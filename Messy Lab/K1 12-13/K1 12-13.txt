@@ -1,0 +1,60 @@
+                  n = 1
+                  max = 2
+                  a = 3
+                  end = 4
+                  ds3 = 5
+                  ds7 = 6
+                  r = 7
+                  d = 0
+                  a_start = 100
+                  ds3_start = 200
+                  ds7_start = 300
+                  petlja = 25
+                  presk1 = 35
+                  presk2 = 43
+                  kraj = 55
+                  deljiv = 56
+                  jeste = 64
+                  ubaci3 = 67
+                  ubaci7 = 71
+    8: 0208 0064  MOV max, 100
+   10: 0308 0064  MOV a, #a_start
+   12: 0508 00C8  MOV ds3, #ds3_start
+   14: 0608 012C  MOV ds7, #ds7_start
+   16: 7101       IN n
+   17: 6018 0037  BGT 0, n, kraj
+   19: 5108 0037  BEQ n, 0, kraj
+   21: 6128 0037  BGT n, max, kraj
+   23: 7B81       IN (a), n
+   24: 1431       ADD end, a, n
+   25: A440 0001  petlja: SUB end, end, 1
+   27: 0008 0003  MOV d, 3
+   29: D000 0038  JSR deljiv
+   31: 5708 0023  BEQ r, 0, presk1
+   33: D000 0043  JSR ubaci3
+   35: 0008 0007  presk1: MOV d, 7
+   37: D000 0038  JSR deljiv
+   39: 5708 002B  BEQ r, 0, presk2
+   41: D000 0047  JSR ubaci7
+   43: 6438 0019  presk2: BGT end, a, petlja
+   45: A150 00C8  SUB n, ds3, #ds3_start
+   47: 0508 00C8  MOV ds3, #ds3_start
+   49: 8D81       OUT (ds3), n
+   50: A160 012C  SUB n, ds7, #ds7_start
+   52: 0608 012C  MOV ds7, #ds7_start
+   54: 8E81       OUT (ds7), n
+   55: F000       kraj: STOP 
+   56: 47C0       deljiv: DIV r, (end), d
+   57: 3770       MUL r, r, d
+   58: 27C7       SUB r, (end), r
+   59: 5708 0040  BEQ r, 0, jeste
+   61: 0708 0000  MOV r, 0
+   63: E000       RTS 
+   64: 0708 0001  jeste: MOV r, 1
+   66: E000       RTS 
+   67: 0DC0       ubaci3: MOV (ds3), (end)
+   68: 9550 0001  ADD ds3, ds3, 1
+   70: E000       RTS 
+   71: 0EC0       ubaci7: MOV (ds7), (end)
+   72: 9660 0001  ADD ds7, ds7, 1
+   74: E000       RTS 

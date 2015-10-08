@@ -10,7 +10,7 @@ Srećno na kolokvijumu!
 Sadržaj
 -------
 
-* U folderu _Kodovi_ naći ćete, poređane po godinama, gotove kodove zadataka, kao i prateće postavke date u PDF-u, skinutom sa sajta predmeta. Postoji i dokument sa dodatnim (nekomentarisanim) kodovima zadataka od 2005. do 2009.
+* U folderu _Kodovi_ naći ćete, poređane po godinama, gotove kodove zadataka, kao i prateće postavke date u PDF-u, skinutom sa sajta predmeta. Postoji i dokument sa dodatnim (nekomentarisanim) kodovima zadataka od 2005. do 2008.
 * U folderu _Messy Lab_ se pored instalacije razvojnog okruženja [Messy Lab](http://www.messylab.com) nalaze i projektni
 direktorijumi i fajlovi za svaki od kolokvijuma, koji vam omogućavaju da zadatke pokrenete i izvršite direktno u okruženju. To možete učiniti tako što ćete skinuti traženi folder i pokrenuti `.mlp` fajl u njemu.
 

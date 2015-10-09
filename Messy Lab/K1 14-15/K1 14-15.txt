@@ -1,0 +1,43 @@
+                  an = 1
+                  ax = 2
+                  arez = 3
+                  one = 4
+                  y = 5
+                  t = 6
+                  i = 7
+                  ponovi = 16
+                  kraj = 31
+                  koren = 32
+                  petlja = 37
+                  stepen = 39
+                  rezy = 49
+                  rezx = 50
+    8: 0108 0064  MOV an, 100
+   10: 0208 0065  MOV ax, 101
+   12: 0308 0066  MOV arez, 102
+   14: 0408 0001  MOV one, 1
+   16: 7901       ponovi: IN (an)
+   17: 6098 001F  BGT 0, (an), kraj
+   19: 5908 001F  BEQ (an), 0, kraj
+   21: 7A01       IN (ax)
+   22: 60A8 001F  BGT 0, (ax), kraj
+   24: 5A08 001F  BEQ (ax), 0, kraj
+   26: D000 0020  JSR koren
+   28: 8B01       OUT (arez)
+   29: 5668 0010  BEQ t, t, ponovi
+   31: F000       kraj: STOP 
+   32: 5948 0032  koren: BEQ (an), one, rezx
+   34: 5A48 0032  BEQ (ax), one, rezx
+   36: 0540       MOV y, one
+   37: 0640       petlja: MOV t, one
+   38: 0790       MOV i, (an)
+   39: 3665       stepen: MUL t, t, y
+   40: 2774       SUB i, i, one
+   41: 6708 0027  BGT i, 0, stepen
+   43: 66A8 0031  BGT t, (ax), rezy
+   45: 0B50       MOV (arez), y
+   46: 1554       ADD y, y, one
+   47: 5668 0025  BEQ t, t, petlja
+   49: E000       rezy: RTS 
+   50: 0BA0       rezx: MOV (arez), (ax)
+   51: E000       RTS 

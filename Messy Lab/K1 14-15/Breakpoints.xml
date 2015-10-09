@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BreakpointMemento xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Breakpoints>
+    <Breakpoint>
+      <Type>Line</Type>
+      <File>Zad2.pca</File>
+      <Line>33</Line>
+      <Address>0</Address>
+      <Count>0</Count>
+      <Read>false</Read>
+      <Write>false</Write>
+      <Execute>false</Execute>
+      <Input>false</Input>
+      <Output>false</Output>
+    </Breakpoint>
+  </Breakpoints>
+</BreakpointMemento>

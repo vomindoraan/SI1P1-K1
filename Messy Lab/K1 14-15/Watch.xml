@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchMemento xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WatchItems>
+    <Watch>
+      <Name>Y</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>T</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>I</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>(AN)</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>(AX)</Name>
+      <Type>Signed</Type>
+    </Watch>
+    <Watch>
+      <Name>(AREZ)</Name>
+      <Type>Signed</Type>
+    </Watch>
+  </WatchItems>
+</WatchMemento>

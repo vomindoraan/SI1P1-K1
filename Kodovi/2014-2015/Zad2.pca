@@ -1,0 +1,61 @@
+﻿; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Prvi kolokvijum 2014/2015
+; Zadatak 2
+;
+; (c) Konstantin Djordjevic 2015
+
+        AN = 1
+        AX = 2
+        AREZ = 3
+        ONE = 4
+        R = 5
+        T = 6
+        I = 7
+        
+        ORG 8
+        
+        MOV AN, 100
+        MOV AX, 101
+        MOV AREZ, 102
+        MOV ONE, 1
+        
+ponovi: IN (AN)
+        BGT 0, (AN), kraj
+        BEQ (AN), 0, kraj
+        
+        IN (AX)
+        BGT 0, (AX), kraj
+        BEQ (AX), 0, kraj
+        
+        JSR koren
+        OUT (AREZ)
+        
+        BEQ T, T, ponovi    ; Bezuslovni skok
+        
+kraj:   STOP
+
+    ;;; Potprogrami ;;;
+
+koren:  BEQ (AN), ONE, rezx ; Ako je izlozilac (N) 1, rezultat je osnova, tj. X
+        BEQ (AX), ONE, rezx ; Ako je osnova (X) 1, rezultat je uvek 1, tj. X
+        
+        MOV R, ONE          ; R ide od 1 do n-tog korena iz X (sto je rezultat)
+petlja: MOV T, ONE          ; T svaki put krece od 1 i onda se dize na N-ti st.
+        MOV I, (AN)         ; I ide od N do 0 i prati broj izvrsenih mnozenja
+        
+stepen: MUL T, T, R         ; T se stepenuje na N tako sto se N puta mnozi sa R
+        SUB I, I, ONE
+        BGT I, 0, stepen
+        
+        BGT T, (AX), rezy   ; Ako je T > X, vracamo R iz prethodne iteracije
+        MOV (AREZ), R       ; U suprotnom je novi kandidat trenutno R
+        ADD R, R, ONE       ; Povecavamo R za sledecu iteraciju
+        BEQ T, T, petlja    ; Bezuslovni skok
+        
+rezy:   RTS
+        
+rezx:   MOV (AREZ), (AX)
+        RTS

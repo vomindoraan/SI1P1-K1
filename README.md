@@ -3,7 +3,7 @@ SI1P1-K1
 
 Ovaj repozitorijum namenjen je brucošima Odseka za softversko inženjerstvo na Elektrotehničkom fakultetu Univerziteta u
 Beogradu, koji polažu predmet Programiranje 1. Projekat sadrži kodove zadataka sa prvih kolokvijuma iz prethodnih godina
-(2009–2014), kako redovnih tako i nekih popravnih. Kodovi su napisani na simboličkom mašinskom jeziku za **picoComputer** i detaljno su komentarisani kako bi bili što čitljiviji.
+(2009–2015), kako redovnih tako i nekih popravnih. Kodovi su napisani na simboličkom mašinskom jeziku za **picoComputer** i detaljno su komentarisani kako bi bili što čitljiviji.
 
 Srećno na kolokvijumu!
 
@@ -17,6 +17,7 @@ direktorijumi i fajlovi za svaki od kolokvijuma, koji vam omogućavaju da zadatk
 Korisni linkovi
 ---------------
 
+* [Messy Lab razvojno okruženje _(nova verzija)_](https://github.com/drstorm/messylab/releases/download/version-1.01/MessyLab-1.01.exe)
 * [Sajt predmeta](http://rti.etf.bg.ac.rs/rti/ir1p1/index_si.html)
 * [Postavke zadataka](http://rti.etf.bg.ac.rs/rti/ir1p1/rokovi.html)
 * [Slajdovi sa predavanja o picoComputer-u](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/predavanja/P1_pico_computer.pdf)
@@ -24,8 +25,7 @@ Korisni linkovi
   * [Arhitektura](http://www.messylab.com/picocomputer/architecture)
   * [Sintaksa](http://www.messylab.com/picocomputer/syntax)
   * [Instrukcije](http://www.messylab.com/picocomputer/instructions)
-* [Messy Lab razvojno okruženje _(nova verzija)_](https://github.com/drstorm/messylab/releases/download/version-1.01/MessyLab-1.01.exe)
-* [pCAS simulator (stari prevodilac za pC)](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/pCAS_1.1.zip)
 * [Video predavanja](https://www.youtube.com/playlist?list=PL548cmeMK0KyJkcULNWttLIrUmcsiOn1_)
+* [pCAS simulator (stari prevodilac za pC)](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/pCAS_1.1.zip)
 
 _Zahvaljujem se kolegi Igoru Čvoroviću na doprinosu dodatnih kodova za zadatke pre 2009. godine. :)_

@@ -38,7 +38,7 @@
 ;		ADD N, N, 1
 ;		BEQ N, N, petlja
 
-petlja: BGT A, LAST, dalje		; Izlaz iz petlje
+petlja:	BGT A, LAST, dalje		; Izlaz iz petlje
 		BGT (A), PROD, suma		; Elem > Prod	Dodaj element na sumu
 		ADD A, A, 1				; Elem <= Prod	Uvecaj adresu i nastavi petlju
 		BEQ N, N, petlja
@@ -49,7 +49,7 @@ suma:	MUL T, (A), (A)
 		ADD A, A, 1				; Postavlja adresu na sledeci element
 		BEQ N, N, petlja		; Bezuslovni skok
 
-dalje:  BEQ M, 0, kraj
+dalje:	BEQ M, 0, kraj
 		DIV MEAN, SUM, M
 		OUT MEAN
 

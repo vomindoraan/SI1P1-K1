@@ -15,13 +15,12 @@ kraj:	STOP
 		
 	;;; Potprogrami ;;;
 
-deljiv: DIV R, A, B
+deljiv:	DIV R, A, B
 		MUL R, R, B
 		SUB R, A, R			; R je ostatak pri deljenju A / B
 		
 		BEQ R, 0, jeste
-		MOV D, 0
+		MOV D, 0			; U D se cuva da li je deljivo
 		RTS
-		
-jeste:	MOV D, 1			; U D se cuva da li je deljivo
+jeste:	MOV D, 1
 		RTS

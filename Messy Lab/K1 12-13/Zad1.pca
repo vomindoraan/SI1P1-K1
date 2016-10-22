@@ -32,7 +32,7 @@ petlja:	SUB END, END, 1		; Iter. niza ide otpozadi, mozda bolje od napred
 		JSR deljiv
 		BEQ R, 0, presk1	; R postaje 1 ako je (END) delj. sa 3, u suprotnom 0
 		JSR ubaci3
-presk1: MOV D, 7
+presk1:	MOV D, 7
 		JSR deljiv
 		BEQ R, 0, presk2	; R postaje 1 ako je (END) delj. sa 7, u suprotnom 0
 		JSR ubaci7
@@ -53,16 +53,17 @@ kraj:	STOP
 deljiv:	DIV R, (END), D
 		MUL R, R, D
 		SUB R, (END), R		; R je ostatak pri deljenju trenutnog elementa sa D
+
 		BEQ R, 0, jeste
-		MOV R, 0
+		MOV R, 0			; Zbog ustede memorije u R se cuva da li je deljivo
 		RTS
-jeste:	MOV R, 1			; Zbog ustede memorije u R se cuva da li je deljivo
+jeste:	MOV R, 1
 		RTS
 		
 ubaci3:	MOV (DS3), (END)
 		ADD DS3, DS3, 1
 		RTS
 
-ubaci7: MOV (DS7), (END)
+ubaci7:	MOV (DS7), (END)
 		ADD DS7, DS7, 1
 		RTS

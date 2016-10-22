@@ -1,0 +1,62 @@
+                  n = 1
+                  a = 2
+                  b = 3
+                  c = 4
+                  end = 5
+                  j = 6
+                  t = 7
+                  a_start = 100
+                  b_start = 200
+                  c_start = 300
+                  petlja = 21
+                  kraj = 35
+                  trougao = 46
+                  nije = 64
+                  izbaci = 67
+                  preskok = 80
+    8: 0208 0064  MOV a, #a_start
+   10: 0308 00C8  MOV b, #b_start
+   12: 0408 012C  MOV c, #c_start
+   14: 7101       IN n
+   15: 7A81       IN (a), n
+   16: 7B81       IN (b), n
+   17: 7C81       IN (c), n
+   18: 1521       ADD end, a, n
+   19: 0608 0000  MOV j, 0
+   21: 5258 0023  petlja: BEQ a, end, kraj
+   23: D000 002E  JSR trougao
+   25: D000 0043  JSR izbaci
+   27: 9220 0001  ADD a, a, 1
+   29: 9330 0001  ADD b, b, 1
+   31: 9440 0001  ADD c, c, 1
+   33: 5118 0015  BEQ n, n, petlja
+   35: 0160       kraj: MOV n, j
+   36: 0208 0064  MOV a, #a_start
+   38: 0308 00C8  MOV b, #b_start
+   40: 0408 012C  MOV c, #c_start
+   42: 8A81       OUT (a), n
+   43: 8B81       OUT (b), n
+   44: 8C81       OUT (c), n
+   45: F000       STOP 
+   46: 17AB       trougao: ADD t, (a), (b)
+   47: 6C78 0040  BGT (c), t, nije
+   49: 5C78 0040  BEQ (c), t, nije
+   51: 17BC       ADD t, (b), (c)
+   52: 6A78 0040  BGT (a), t, nije
+   54: 5A78 0040  BEQ (a), t, nije
+   56: 17AC       ADD t, (a), (c)
+   57: 6B78 0040  BGT (b), t, nije
+   59: 5B78 0040  BEQ (b), t, nije
+   61: 0708 0001  MOV t, 1
+   63: E000       RTS 
+   64: 0708 0000  nije: MOV t, 0
+   66: E000       RTS 
+   67: 9106 0064  izbaci: ADD n, #a_start, j
+   69: 09A0       MOV (n), (a)
+   70: 9106 00C8  ADD n, #b_start, j
+   72: 09B0       MOV (n), (b)
+   73: 9106 012C  ADD n, #c_start, j
+   75: 09C0       MOV (n), (c)
+   76: 5708 0050  BEQ t, 0, preskok
+   78: 9660 0001  ADD j, j, 1
+   80: E000       preskok: RTS 

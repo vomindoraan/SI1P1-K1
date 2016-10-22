@@ -33,7 +33,8 @@ preskok:BEQ X, Y, jeste		; Ako X = Y, a da pritom nema ostatak, X je stepen Y
 		DIV X, X, Y			; Iterativno delimo X sa Y i priblizavamo ga Y
 		BEQ X, X, petlja	; Bezuslovni skok
 
-jeste:	MOV C, 1			; U C se cuva da li je stepen
+jeste:	MOV C, 1
 		RTS
+		
 nije:	MOV C, 0
 		RTS

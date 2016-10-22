@@ -41,8 +41,7 @@ validno:BGT 0, S, nije      ; Pozitivno im ovde znaci nenegativno, valjda...
         BGT 0, M, nije
         BGT M, MAX, nije
         BGT 0, H, nije
-
-        MOV V, 1            ; U V se cuva da li je validno
+        MOV V, 1
         RTS
 nije:   MOV V, 0
         RTS

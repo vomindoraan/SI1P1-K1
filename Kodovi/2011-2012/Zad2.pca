@@ -29,7 +29,8 @@ deljiv: DIV R, A, B
         SUB R, A, R         ; R je ostatak pri deljenju A / B
         
         BEQ R, 0, jeste
-        MOV D, 0            ; U D se cuva da li je deljivo
+        MOV D, 0
         RTS
-jeste:  MOV D, 1
+        
+jeste:  MOV D, 1            ; U D se cuva da li je deljivo
         RTS

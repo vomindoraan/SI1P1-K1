@@ -62,11 +62,10 @@ kraj:   STOP
 deljiv: DIV R, (END), D
         MUL R, R, D
         SUB R, (END), R     ; R je ostatak pri deljenju trenutnog elementa sa D
-        
         BEQ R, 0, jeste
-        MOV R, 0            ; Zbog ustede memorije u R se cuva da li je deljivo
+        MOV R, 0
         RTS
-jeste:  MOV R, 1
+jeste:  MOV R, 1            ; Zbog ustede memorije u R se cuva da li je deljivo
         RTS
         
 ubaci3: MOV (DS3), (END)

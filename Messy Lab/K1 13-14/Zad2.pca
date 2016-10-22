@@ -12,7 +12,7 @@
 		
 		IN X, 2				; Ucitava X i M odjednom
 		BGT MIN, M, kraj
-		MOV MIN, #BITS		; Usteda memorije - umesto dva simbola jedan
+		MOV MIN, #BITS		; Stednja memorije - umesto dva simbola jedan
 		BGT M, MIN, kraj
 		
 		JSR postavi
@@ -26,7 +26,7 @@ postavi:JSR mtibit		; Za znak je bitan najvisi bit, a to je kod nas M-ti bit
 		MOV NEG, B
 		RTS
 
-mtibit:	DIV B, X, 2		; Po algoritmu, M puta delimo X/2 i gledamo ostatak
+mtibit: DIV B, X, 2		; Po algoritmu, M puta delimo X/2 i gledamo ostatak
 		MUL B, B, 2
 		SUB B, X, B		; B je ostatak pri delj. sa 2, tj. bit na tom mestu
 		

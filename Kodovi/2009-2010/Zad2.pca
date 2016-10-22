@@ -42,8 +42,9 @@ petlja: DIV R, T, TWO
         DIV T, T, TWO
         BEQ A, A, petlja    ; Ponavljamo postupak nalazenja ostatka i deljenja
         
-jeste:  MOV B, 1            ; U B se cuva da li je stepen 2
+jeste:  MOV B, 1
         RTS
+        
 nije:   MOV B, 0
         RTS
         

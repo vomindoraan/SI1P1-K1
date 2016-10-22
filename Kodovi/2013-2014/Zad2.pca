@@ -21,7 +21,7 @@
         
         IN X, 2             ; Ucitava X i M odjednom
         BGT MIN, M, kraj
-        MOV MIN, #BITS      ; Usteda memorije - umesto dva simbola jedan
+        MOV MIN, #BITS      ; Stednja memorije - umesto dva simbola jedan
         BGT M, MIN, kraj
         
         JSR postavi

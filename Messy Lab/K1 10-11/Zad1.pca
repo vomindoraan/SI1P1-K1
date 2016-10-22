@@ -23,7 +23,7 @@ ponovi:	IN N
 		MOV I, 0
 		MOV SUM, 0
 		JSR ars
-		MOV M, 0				; M je brojac za nadjene brojeve vece od ars
+		MOV M, 0				; M je brojac za nadjene elemente vece od ars
 		
 petlja:	BGT MEAN, (A), preskok	; Suprotan uslov uslovu A > MEAN je MEAN >= A
 		BEQ MEAN, (A), preskok	; Uporediti ovaj nacin sa: K1 11-12 Zad1 line 40

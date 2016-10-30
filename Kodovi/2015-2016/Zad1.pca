@@ -55,15 +55,18 @@ kraj:   MOV N, J            ; Nizovi su skraceni, u J se nalazi nova duzina
     ;;; Potprogrami ;;;
 
 trougao:ADD T, (A), (B)     ; T je zbir dveju stranica
-        BGT T, (C), jeste   ; Ako je zbir bilo koje 2 veci od trece, trougao = 1
+        BGT (C), T, nije    ; Ako bilo koji zbir nije veci od trece, trougao = 0
+        BEQ (C), T, nije    ; Suprotan uslov od T > (C) je (C) >= T
         ADD T, (B), (C)
-        BGT T, (A), jeste
+        BGT (A), T, nije
+        BEQ (A), T, nije
         ADD T, (A), (C)
-        BGT T, (B), jeste
+        BGT (B), T, nije
+        BEQ (B), T, nije
 
-        MOV T, 0            ; T se sad koristi za cuvanje rezultata; trougao = 0
+        MOV T, 1            ; T se sad koristi za cuvanje rezultata; trougao = 1
         RTS
-jeste:  MOV T, 1
+nije:   MOV T, 0
         RTS
 
 izbaci: ADD N, #A_START, J  ; Racuna se adresa J. elementa za svaki niz

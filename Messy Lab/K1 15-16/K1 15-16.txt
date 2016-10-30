@@ -5,6 +5,9 @@
                   end = 5
                   j = 6
                   t = 7
+                  aj = 0
+                  bj = 0
+                  cj = 0
                   a_start = 100
                   b_start = 200
                   c_start = 300
@@ -51,12 +54,12 @@
    63: E000       RTS 
    64: 0708 0000  nije: MOV t, 0
    66: E000       RTS 
-   67: 9106 0064  izbaci: ADD n, #a_start, j
-   69: 09A0       MOV (n), (a)
-   70: 9106 00C8  ADD n, #b_start, j
-   72: 09B0       MOV (n), (b)
-   73: 9106 012C  ADD n, #c_start, j
-   75: 09C0       MOV (n), (c)
+   67: 9006 0064  izbaci: ADD aj, #a_start, j
+   69: 08A0       MOV (aj), (a)
+   70: 9006 00C8  ADD bj, #b_start, j
+   72: 08B0       MOV (bj), (b)
+   73: 9006 012C  ADD cj, #c_start, j
+   75: 08C0       MOV (cj), (c)
    76: 5708 0050  BEQ t, 0, preskok
    78: 9660 0001  ADD j, j, 1
    80: E000       preskok: RTS 

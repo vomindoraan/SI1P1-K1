@@ -1,6 +1,7 @@
 ﻿		X = 1
 		M = 2
-		MIN = 3
+		MIN = 3			; Ista lokacija, dva imena
+		MAX = 3
 		NEG = 4
 		B = 5
 		
@@ -8,12 +9,13 @@
 		
 		ORG 8
 		
+		IN X, 2			; Ucitava X i M odjednom
+
 		MOV MIN, 3
-		
-		IN X, 2				; Ucitava X i M odjednom
-		BGT MIN, M, kraj
-		MOV MIN, #BITS		; Usteda memorije - umesto dva simbola jedan
-		BGT M, MIN, kraj
+		BGT MIN, M, kraj	; M < 3
+
+		MOV MAX, #BITS
+		BGT M, MAX, kraj	; M > 16
 		
 		JSR postavi
 		OUT NEG

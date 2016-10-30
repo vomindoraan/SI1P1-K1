@@ -14,6 +14,9 @@
         END = 5
         J = 6
         T = 7
+        AJ = 0          ; Ista lokacija, vise imena
+        BJ = 0
+        CJ = 0
 
         A_START = 100   ; Pocetne adr. nizova (razmaci od 100 su bezbedni)
         B_START = 200
@@ -55,7 +58,7 @@ kraj:   MOV N, J            ; Nizovi su skraceni, u J se nalazi nova duzina
     ;;; Potprogrami ;;;
 
 trougao:ADD T, (A), (B)     ; T je zbir dveju stranica
-        BGT (C), T, nije    ; Ako bilo koji zbir nije veci od trece, trougao = 0
+        BGT (C), T, nije    ; Ako zbir dve nije veci od trece, nije trougao
         BEQ (C), T, nije    ; Suprotan uslov od T > (C) je (C) >= T
         ADD T, (B), (C)
         BGT (A), T, nije
@@ -64,17 +67,18 @@ trougao:ADD T, (A), (B)     ; T je zbir dveju stranica
         BGT (B), T, nije
         BEQ (B), T, nije
 
-        MOV T, 1            ; T se sad koristi za cuvanje rezultata; trougao = 1
+        MOV T, 1            ; U T se sad cuva da li je trougao
         RTS
 nije:   MOV T, 0
         RTS
 
-izbaci: ADD N, #A_START, J  ; Racuna se adresa J. elementa za svaki niz
-        MOV (N), (A)        ; (A), (B), (C) se prepisuju na J. mesto
-        ADD N, #B_START, J  ; Zbog ustede memorije adresa se cuva u N
-        MOV (N), (B)
-        ADD N, #C_START, J
-        MOV (N), (C)
-        BEQ T, 0, preskok   ; Nije trougao, J se ne pomera (elem. biva izbacen)
+izbaci: ADD AJ, #A_START, J ; Racuna se adresa J. elementa u svakom nizu
+        MOV (AJ), (A)       ; (A), (B), (C) se prepisuju na odgovarajuce mesto
+        ADD BJ, #B_START, J
+        MOV (BJ), (B)
+        ADD CJ, #C_START, J
+        MOV (CJ), (C)
+
+        BEQ T, 0, preskok   ; Nije trougao, J se ne pomera (elem. biva prepisan)
         ADD J, J, 1         ; Jeste trougao, J se pomera (elem. ostaje u nizu)
 preskok:RTS

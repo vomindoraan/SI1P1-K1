@@ -55,7 +55,7 @@ deljiv:	DIV R, (END), D
 		SUB R, (END), R		; R je ostatak pri deljenju trenutnog elementa sa D
 
 		BEQ R, 0, jeste
-		MOV R, 0			; Zbog ustede memorije u R se cuva da li je deljivo
+		MOV R, 0			; Zbog manjka simbola u R se cuva da li je deljivo
 		RTS
 jeste:	MOV R, 1
 		RTS

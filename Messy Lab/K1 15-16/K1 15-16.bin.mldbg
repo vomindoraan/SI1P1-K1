@@ -67,7 +67,34 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
+        <Line>8</Line>
+      </Location>
+      <Name>aj</Name>
+      <Value>0</Value>
+      <IsExecutable>false</IsExecutable>
+    </DebugSymbol>
+    <DebugSymbol>
+      <Location>
+        <File>Zad1.pca</File>
         <Line>9</Line>
+      </Location>
+      <Name>bj</Name>
+      <Value>0</Value>
+      <IsExecutable>false</IsExecutable>
+    </DebugSymbol>
+    <DebugSymbol>
+      <Location>
+        <File>Zad1.pca</File>
+        <Line>10</Line>
+      </Location>
+      <Name>cj</Name>
+      <Value>0</Value>
+      <IsExecutable>false</IsExecutable>
+    </DebugSymbol>
+    <DebugSymbol>
+      <Location>
+        <File>Zad1.pca</File>
+        <Line>12</Line>
       </Location>
       <Name>a_start</Name>
       <Value>100</Value>
@@ -76,7 +103,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>10</Line>
+        <Line>13</Line>
       </Location>
       <Name>b_start</Name>
       <Value>200</Value>
@@ -85,7 +112,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>11</Line>
+        <Line>14</Line>
       </Location>
       <Name>c_start</Name>
       <Value>300</Value>
@@ -94,7 +121,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>15</Line>
+        <Line>18</Line>
       </Location>
       <Name />
       <Value>8</Value>
@@ -103,7 +130,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>16</Line>
+        <Line>19</Line>
       </Location>
       <Name />
       <Value>10</Value>
@@ -112,7 +139,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>17</Line>
+        <Line>20</Line>
       </Location>
       <Name />
       <Value>12</Value>
@@ -121,7 +148,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>19</Line>
+        <Line>22</Line>
       </Location>
       <Name />
       <Value>14</Value>
@@ -130,7 +157,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>20</Line>
+        <Line>23</Line>
       </Location>
       <Name />
       <Value>15</Value>
@@ -139,7 +166,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>21</Line>
+        <Line>24</Line>
       </Location>
       <Name />
       <Value>16</Value>
@@ -148,7 +175,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>22</Line>
+        <Line>25</Line>
       </Location>
       <Name />
       <Value>17</Value>
@@ -157,7 +184,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>24</Line>
+        <Line>27</Line>
       </Location>
       <Name />
       <Value>18</Value>
@@ -166,7 +193,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>25</Line>
+        <Line>28</Line>
       </Location>
       <Name />
       <Value>19</Value>
@@ -175,7 +202,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>27</Line>
+        <Line>30</Line>
       </Location>
       <Name>petlja</Name>
       <Value>21</Value>
@@ -184,7 +211,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>28</Line>
+        <Line>31</Line>
       </Location>
       <Name />
       <Value>23</Value>
@@ -193,7 +220,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>29</Line>
+        <Line>32</Line>
       </Location>
       <Name />
       <Value>25</Value>
@@ -202,7 +229,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>30</Line>
+        <Line>33</Line>
       </Location>
       <Name />
       <Value>27</Value>
@@ -211,7 +238,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>31</Line>
+        <Line>34</Line>
       </Location>
       <Name />
       <Value>29</Value>
@@ -220,7 +247,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>32</Line>
+        <Line>35</Line>
       </Location>
       <Name />
       <Value>31</Value>
@@ -229,7 +256,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>33</Line>
+        <Line>36</Line>
       </Location>
       <Name />
       <Value>33</Value>
@@ -238,7 +265,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>35</Line>
+        <Line>38</Line>
       </Location>
       <Name>kraj</Name>
       <Value>35</Value>
@@ -247,7 +274,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>37</Line>
+        <Line>40</Line>
       </Location>
       <Name />
       <Value>36</Value>
@@ -256,7 +283,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>38</Line>
+        <Line>41</Line>
       </Location>
       <Name />
       <Value>38</Value>
@@ -265,7 +292,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>39</Line>
+        <Line>42</Line>
       </Location>
       <Name />
       <Value>40</Value>
@@ -274,7 +301,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>40</Line>
+        <Line>43</Line>
       </Location>
       <Name />
       <Value>42</Value>
@@ -283,7 +310,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>41</Line>
+        <Line>44</Line>
       </Location>
       <Name />
       <Value>43</Value>
@@ -292,7 +319,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>42</Line>
+        <Line>45</Line>
       </Location>
       <Name />
       <Value>44</Value>
@@ -301,7 +328,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>44</Line>
+        <Line>47</Line>
       </Location>
       <Name />
       <Value>45</Value>
@@ -310,7 +337,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>48</Line>
+        <Line>51</Line>
       </Location>
       <Name>trougao</Name>
       <Value>46</Value>
@@ -319,7 +346,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>49</Line>
+        <Line>52</Line>
       </Location>
       <Name />
       <Value>47</Value>
@@ -328,7 +355,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>50</Line>
+        <Line>53</Line>
       </Location>
       <Name />
       <Value>49</Value>
@@ -337,7 +364,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>51</Line>
+        <Line>54</Line>
       </Location>
       <Name />
       <Value>51</Value>
@@ -346,7 +373,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>52</Line>
+        <Line>55</Line>
       </Location>
       <Name />
       <Value>52</Value>
@@ -355,7 +382,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>53</Line>
+        <Line>56</Line>
       </Location>
       <Name />
       <Value>54</Value>
@@ -364,7 +391,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>54</Line>
+        <Line>57</Line>
       </Location>
       <Name />
       <Value>56</Value>
@@ -373,7 +400,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>55</Line>
+        <Line>58</Line>
       </Location>
       <Name />
       <Value>57</Value>
@@ -382,7 +409,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>56</Line>
+        <Line>59</Line>
       </Location>
       <Name />
       <Value>59</Value>
@@ -391,7 +418,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>58</Line>
+        <Line>61</Line>
       </Location>
       <Name />
       <Value>61</Value>
@@ -400,7 +427,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>59</Line>
+        <Line>62</Line>
       </Location>
       <Name />
       <Value>63</Value>
@@ -409,7 +436,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>60</Line>
+        <Line>63</Line>
       </Location>
       <Name>nije</Name>
       <Value>64</Value>
@@ -418,7 +445,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>61</Line>
+        <Line>64</Line>
       </Location>
       <Name />
       <Value>66</Value>
@@ -427,7 +454,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>63</Line>
+        <Line>66</Line>
       </Location>
       <Name>izbaci</Name>
       <Value>67</Value>
@@ -436,7 +463,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>64</Line>
+        <Line>67</Line>
       </Location>
       <Name />
       <Value>69</Value>
@@ -445,7 +472,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>65</Line>
+        <Line>68</Line>
       </Location>
       <Name />
       <Value>70</Value>
@@ -454,7 +481,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>66</Line>
+        <Line>69</Line>
       </Location>
       <Name />
       <Value>72</Value>
@@ -463,7 +490,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>67</Line>
+        <Line>70</Line>
       </Location>
       <Name />
       <Value>73</Value>
@@ -472,7 +499,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>68</Line>
+        <Line>71</Line>
       </Location>
       <Name />
       <Value>75</Value>
@@ -481,7 +508,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>69</Line>
+        <Line>73</Line>
       </Location>
       <Name />
       <Value>76</Value>
@@ -490,7 +517,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>70</Line>
+        <Line>74</Line>
       </Location>
       <Name />
       <Value>78</Value>
@@ -499,7 +526,7 @@
     <DebugSymbol>
       <Location>
         <File>Zad1.pca</File>
-        <Line>71</Line>
+        <Line>75</Line>
       </Location>
       <Name>preskok</Name>
       <Value>80</Value>

@@ -41,9 +41,5 @@
       <Name>(C)</Name>
       <Type>Signed</Type>
     </Watch>
-    <Watch>
-      <Name>(N)</Name>
-      <Type>Signed</Type>
-    </Watch>
   </WatchItems>
 </WatchMemento>

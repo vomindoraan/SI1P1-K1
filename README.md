@@ -1,28 +1,40 @@
 SI1P1-K1
 ========
 
-Ovaj repozitorijum namenjen je brucošima Odseka za Softversko inženjerstvo na Elektrotehničkom fakultetu Univerziteta u Beogradu, koji polažu predmet Programiranje 1. Projekat sadrži kodove zadataka sa prvih kolokvijuma iz prethodnih godina (2009–2015), kako redovnih tako i nekih popravnih. Kodovi su napisani na simboličkom mašinskom jeziku za **picoComputer** i detaljno su komentarisani kako bi bili što čitljiviji.
+Овај репозиторијум намењен је бруцошима Одсека за софтверско инжењерство на
+Електротехничком факултету Универзитета у Београду, који полажу предмет
+Програмирање 1. Пројекат садржи кодове задатака са првих колоквијума из
+претходних година (2009–2015), како редовних тако и неких поправних. Кодови су
+написани на симболичком машинском језику за **_picoComputer_** и детаљно су
+коментарисани како би били што читљивији.
 
-Srećno na kolokvijumu!
+Срећно на колоквијуму!
 
-Sadržaj
+Садржај
 -------
 
-* U folderu _Kodovi_ naći ćete, poređane po godinama, gotove kodove zadataka, kao i prateće postavke date u PDF-u, skinutom sa sajta predmeta. Postoji i dokument sa dodatnim (nekomentarisanim) kodovima zadataka od 2005. do 2008.
-* U folderu _Messy Lab_ se pored instalacije razvojnog okruženja [Messy Lab](http://www.messylab.com) nalaze i projektni direktorijumi i fajlovi za svaki od kolokvijuma, koji vam omogućavaju da zadatke pokrenete i izvršite direktno u okruženju. To možete učiniti tako što ćete skinuti traženi folder i pokrenuti `.mlp` fajl u njemu.
+* У фолдеру **Кодови** наћи ћете готове кодове задатака поређане по годинама, као
+  и пратеће поставке дате у PDF-овима, скинутим са сајта предмета. Постоји и
+  документ са додатним (некоментарисаним) кодовима задатака од 2005. до 2008.
+* У фолдеру **Messy Lab** се поред инсталације развојног окружења
+  [_Messy Lab_](http://www.messylab.com) налазе и пројектне датотеке за сваки од
+  колоквијума, које вам омогућавају да задатке покренете и извршите непосредно
+  у окружењу. То можете учинити тако што ћете скинути жељени фолдер и покренути
+  `.mlp` фајл у њему.
 
-Korisni linkovi
----------------
+Корисне везе
+------------
 
-* [Sajt predmeta](http://rti.etf.bg.ac.rs/rti/ir1p1/index_si.html)
-* [Postavke zadataka](http://rti.etf.bg.ac.rs/rti/ir1p1/rokovi.html)
-* [Slajdovi sa predavanja o picoComputer-u](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/predavanja/P1_pico_computer.pdf)
-* [O picoComputer-u na sajtu Messy Lab](http://messylab.com/pico/)
-  * [Arhitektura](http://messylab.com/pico/#architecture)
-  * [Sintaksa](http://messylab.com/pico/#syntax)
-  * [Instrukcije](http://messylab.com/pico/#instruction-set)
-* [Messy Lab razvojno okruženje _(nova verzija)_](https://github.com/drstorm/messylab/releases/download/version-1.01/MessyLab-1.01.exe)
-* [pCAS simulator (stari prevodilac za pC)](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/pCAS_1.1.zip)
-* [Video predavanja](https://www.youtube.com/playlist?list=PL548cmeMK0KyJkcULNWttLIrUmcsiOn1_)
+* [Сајт предмета](http://rti.etf.bg.ac.rs/rti/ir1p1/index_si.html)
+* [Поставке задатака](http://rti.etf.bg.ac.rs/rti/ir1p1/rokovi.html)
+* [Слајдови са предавања о _picoComputer_-у](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/predavanja/P1_pico_computer.pdf)
+* [О _picoComputer_-у на сајту _Messy Lab_](http://messylab.com/pico/)
+  * [Архитектура](http://messylab.com/pico/#architecture)
+  * [Синтакса](http://messylab.com/pico/#syntax)
+  * [Инструкције](http://messylab.com/pico/#instruction-set)
+* [_Messy Lab_ развојно окружење (ново издање)](https://github.com/drstorm/messylab/releases/download/version-1.01/MessyLab-1.01.exe)
+* [_pCAS_ симулатор (стари преводилац за _pC_)](http://rti.etf.bg.ac.rs/rti/ir1p1/materijali/pCAS_1.1.zip)
+* [Видео предавања](https://www.youtube.com/playlist?list=PL548cmeMK0KyJkcULNWttLIrUmcsiOn1_)
 
-_Zahvaljujem se kolegi Igoru Čvoroviću na doprinosu dodatnih kodova za zadatke pre 2009. godine. :)_
+_Захваљујем се колеги Игору Чворовићу на доприносу додатних кодова за задатке
+пре 2009. године. :)_

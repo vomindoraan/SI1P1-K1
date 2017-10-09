@@ -1,0 +1,83 @@
+﻿		X = 0
+		N = 1
+		MAX = 2
+		B = 3
+		D = 4
+		BIT = 5
+		NULE = 6
+		ZNAK = 7
+		
+		BITS = 16
+		B_START = 100
+		
+		ORG 8
+		
+		MOV MAX, #BITS
+		MOV B, #B_START
+		
+		IN N
+		BGT 0, N, kraj
+		BEQ N, 0, kraj
+		BGT N, MAX, kraj
+		
+		IN (B), N
+		IN X
+		
+		JSR shl
+		; MOV B, #B_START
+		; OUT (B), N		; Ispisuje bite posle pomeranja (ne trazi se)
+		
+		JSR bindec
+		OUT D
+		
+kraj:	STOP
+
+	;;; Potprogrami ;;;
+	
+; Pomeranje ulevo
+shl:	MOV B, #B_START
+		ADD MAX, B, N		; Adresa kraja niza bitova
+		SUB NULE, MAX, X	; Adresa pocev od koje ce posle pomeranja biti nule
+		
+petlja:	BGT NULE, B, movbit	; Ako nismo dosli do dela sa nulama, prepisi bit
+		MOV (B), 0			; U suprotnom upisi 0
+		BEQ N, N, sled		; Bezuslovni skok
+movbit:	ADD BIT, B, X		; Adresa bita koji treba prepisati: X mesta unapred
+		MOV (B), (BIT)
+sled:	ADD B, B, 1			; Pomera se na sledeci bit
+		BGT MAX, B, petlja	; Ako nismo obradili sve, vrati se na petlji
+
+		RTS
+
+; Pretvaranje iz bin. u dec.
+bindec:	MOV B, #B_START
+		ADD MAX, B, N
+		MOV D, 0
+		MOV ZNAK, (B)		; Pozitivan: ZNAK=0, negativan: ZNAK=1
+		BEQ ZNAK, 0, pretv	; Ako je pozitivan, odmah pretvori
+		JSR kompl2			; U suprotnom prvo prebaci iz komplementa dvojke
+		
+pretv:	MUL D, D, 2			; Pretvaranje se radi tako sto u svakom koraku:
+		ADD D, D, (B)		; D = D*2 + bit (pomeri za 1 ulevo i dodaj sl. bit)
+		ADD B, B, 1
+		BGT MAX, B, pretv
+		
+		BEQ ZNAK, 0, izlaz
+		MUL D, D, -1		; Obrni znak po potrebi
+izlaz:	RTS
+
+; Komplement dvojke
+kompl2:	MOV BIT, MAX		; Adresa iza najnizeg bita
+pret:	SUB BIT, BIT, 1
+		BEQ (BIT), 0, pret	; Dokle god su nule, idi unazad
+		SUB BIT, BIT, 1		; Prvu jedinicu preskoci
+
+zameni:	BGT B, BIT, izlaz
+		BEQ (BIT), 0, mov1	; Ako je sadasnji bit 0, upisi 1
+		MOV (BIT), 0		; U suprotnom upisi 0
+		BEQ N, N, pret_		; Bezuslovni skok
+mov1:	MOV (BIT), 1
+pret_:	SUB BIT, BIT, 1
+		BEQ N, N, zameni	; Bezuslovni skok
+
+izlaz_:	RTS

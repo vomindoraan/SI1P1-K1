@@ -12,11 +12,11 @@
         C = 3
         R = 4
         ONE = 5
-        
+
         ORG 8
-        
+
         MOV ONE, 1
-        
+
 ponovi: IN X, 2             ; Ucitava X i Y odjednom
         BEQ X, 0, kraj
         BGT 0, Y, kraj
@@ -35,7 +35,7 @@ stepen: BEQ X, ONE, jeste   ; Specijalni slucaj: 1 = bilosta^0 => X jeste stepen
 petlja: DIV R, X, Y
         MUL R, R, Y
         SUB R, X, R         ; R je ostatak pri deljenju X / Y
-        
+
         BEQ R, 0, preskok   ; R == 0
         BEQ X, X, nije      ; R != 0 Ako se bilo kad javi ostatak, X nije stepen
 preskok:BEQ X, Y, jeste     ; Ako X = Y, a da pritom nema ostatak, X je stepen Y

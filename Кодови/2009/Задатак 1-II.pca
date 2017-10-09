@@ -16,29 +16,29 @@
         A_LAST = 5
         NEXT = 6
         L = 7
-        
+
         A_START = 100
         B_START = 200
-        
+
         ORG 8
-        
+
         MOV MAX, 100
         MOV A, #A_START
         MOV B, #B_START
-        
+
         IN N
         BGT 0, N, kraj
         BEQ N, 0, kraj
         BGT N, MAX, kraj
-        
+
         IN (A), N
         ADD A_LAST, A, N
         SUB A_LAST, A_LAST, 1   ; Umanjuje se da bi pokazivalo na posl. el. niza
-        
+
         IN (B), N
-        
+
         MOV L, N    ; L je br. elem. koje treba pomeriti, ako do pomeranja dodje
-        
+
 petlja: SUB L, L, 1             ; L se koristi kao brojac za petlju (downto)
         BGT 0, L, dalje         ; Izlaz iz petlje
         BEQ (B), 0, pomeri      ; (B) == 0
@@ -54,8 +54,8 @@ pomeri: ADD NEXT, A, 1
         MOV (B), (NEXT), L
         SUB N, N, 1             ; Izbacili smo elem, pa smanjujemo br. el. za 1
         BEQ N, N, petlja        ; Bezuslovni skok
-        
+
 dalje:  MOV A, #A_START         ; A se pomerilo, vracamo ga na pocetnu adresu
         OUT (A), N
-        
+
 kraj:   STOP

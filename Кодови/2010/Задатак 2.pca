@@ -13,17 +13,17 @@
         H = 4
         MAX = 5
         V = 6
-        
+
         ORG 8
-        
+
         MOV MAX, 59         ; Proveravacemo da li S (ili M) nije vece od 59
-        
+
 petlja: MOV A, 100
         JSR ucitaj
         JSR validno
         OUT V
         BEQ V, 0, petlja    ; Dok god nije validno, ponavljaj
-        
+
         STOP
 
     ;;; Potprogrami ;;;

@@ -14,40 +14,40 @@
         B = 5
         SUM = 6
         R = 7
-        
+
         A_START = 100
-        
+
         ORG 8
-        
+
         MOV MAX, 100
         MOV A, #A_START
         MOV B, 10           ; Cifre svakog broja cemo uzimati pomocu modula 10
-        
+
         IN N
         BGT 0, N, kraj
         BEQ N, 0, kraj
         BGT N, MAX, kraj
-        
+
         IN (A), N
-        
+
         ADD END, A, N
         MOV SUM, 0
-        
+
 petlja: BEQ (A), 0, dalje   ; Prekini kada trenutni broj u nizu postane 0
         JSR mod             ; Ostatak (modulo) po 10 je cifra na mestu jedinice
         ADD SUM, SUM, R
         DIV (A), (A), 10    ; Trenutni se deli sa 10 da bi se dobila sled. cifra
         BEQ N, N, petlja    ; Bezuslovni skok
-        
+
 dalje:  ADD A, A, 1         ; Prelaz na naredni element u nizu
         BGT END, A, petlja
-        
+
         OUT SUM
-        
+
 kraj:   STOP
 
     ;;; Potprogrami ;;;
-    
+
 mod:    DIV R, (A), B
         MUL R, R, B
         SUB R, (A), R       ; R je ostatak pri deljenju (A) / B

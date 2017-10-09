@@ -15,23 +15,23 @@
         SUM = 6
         T = 7
         MEAN = 0
-        
+
         A_START = 200
-        
+
         ORG 8
-        
+
         MOV M, 100
-        
+
         IN N
         BGT 0, N, kraj
         BEQ N, 0, kraj
         BGT N, M, kraj
-        
+
         MOV A, #A_START
         IN (A), N
         ADD LAST, A, N
         SUB LAST, LAST, 1   ; Umanjuje se da bi pokazivalo na posl. elem. niza
-        
+
         MUL PROD, (A), (LAST)
         MOV SUM, 0      ; 0 je podraz. vr, ali mozda bolje eksplicitno navesti
         MOV M, 0        ; M se sad koristi kao brojac

@@ -22,6 +22,22 @@ SI1P1-K1
   у окружењу. То можете учинити тако што ћете покренути `.mlp` датотеку у
   фолдеру колоквијума.
 
+Преузимање
+----------
+
+* Као ZIP архива:
+  [**овде**](https://github.com/vomindoraan/SI1P1-K1/archive/master.zip), или
+  преко зеленог дугмета на врху главне странице (изнад).
+* Кроз [_Git_](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git):
+  1. отворите командну линију и идите у директоријум где хоћете да буде смештен
+     пројекат;
+  2. извршите `git clone https://github.com/vomindoraan/SI1P1-K1.git`.
+
+Предност употребе _Git_-а је што у сваком тренутку можете дохватити најновије
+измене у пројекту командом `git pull`, као и предложити своје путем _GitHub_
+[_fork_](https://help.github.com/articles/fork-a-repo) и
+[_pull request_](https://help.github.com/articles/about-pull-requests) система.
+
 Корисне везе
 ------------
 

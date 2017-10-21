@@ -1,0 +1,16 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.pca]
+charset = latin1
+
+[Messy Lab/**.pca]
+indent_style = tab
+trim_trailing_whitespace = false

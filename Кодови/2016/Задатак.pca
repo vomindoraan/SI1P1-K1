@@ -64,7 +64,7 @@ bindec: MOV B, #B_START
         MOV D, 0
         MOV ZNAK, (B)       ; Pozitivan: ZNAK=0, negativan: ZNAK=1
         BEQ ZNAK, 0, pretv  ; Ako je pozitivan, odmah pretvori
-        JSR kompl2          ; U suprotnom prvo prebaci iz komplementa dvojke
+        JSR komp2           ; U suprotnom prvo prebaci iz komplementa dvojke
 
 pretv:  MUL D, D, 2         ; Pretvaranje se radi tako sto u svakom koraku:
         ADD D, D, (B)       ; D = D*2 + bit (pomeri za 1 ulevo i dodaj sl. bit)
@@ -72,21 +72,17 @@ pretv:  MUL D, D, 2         ; Pretvaranje se radi tako sto u svakom koraku:
         BGT MAX, B, pretv
 
         BEQ ZNAK, 0, izlaz
-        MUL D, D, -1        ; Obrni znak po potrebi
+        MUL D, D, -1        ; Prebaci u negativan ako treba
 izlaz:  RTS
 
 ; Komplement dvojke
-kompl2: MOV BIT, MAX        ; Adresa iza najnizeg bita
-pret:   SUB BIT, BIT, 1
-        BEQ (BIT), 0, pret  ; Dokle god su nule, idi unazad
-        SUB BIT, BIT, 1     ; Prvu jedinicu preskoci
+        MOV BIT, MAX    ; Adresa iza najnizeg bita (ide se od kraja ka pocetku)
+komp2:  SUB BIT, BIT, 1
+        BEQ (BIT), 0, komp2 ; Dokle god su nule, idi unazad
 
-zameni: BGT B, BIT, izlaz
-        BEQ (BIT), 0, mov1  ; Ako je sadasnji bit 0, upisi 1
-        MOV (BIT), 0        ; U suprotnom upisi 0
-        BEQ N, N, pret_     ; Bezuslovni skok
-mov1:   MOV (BIT), 1
-pret_:  SUB BIT, BIT, 1
+zameni: SUB BIT, BIT, 1     ; Preskace prvu jedinicu zdesna
+        BGT B, BIT, izlaz_  ; Za ostale bite do pocetka broja
+        SUB (BIT), 1, (BIT) ; Komplementira svaki bit
         BEQ N, N, zameni    ; Bezuslovni skok
 
 izlaz_: RTS

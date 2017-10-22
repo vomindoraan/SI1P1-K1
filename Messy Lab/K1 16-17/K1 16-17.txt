@@ -1,3 +1,4 @@
+                  x = 0
                   n = 1
                   max = 2
                   b = 3
@@ -5,7 +6,6 @@
                   bit = 5
                   nule = 6
                   znak = 7
-                  x = 0
                   bits = 16
                   b_start = 100
                   kraj = 26
@@ -16,12 +16,9 @@
                   bindec = 44
                   pretv = 54
                   izlaz = 65
-                  kompl2 = 66
-                  pret = 67
-                  zameni = 73
-                  mov1 = 81
-                  pret_ = 83
-                  izlaz_ = 87
+                  komp2 = 67
+                  zameni = 71
+                  izlaz_ = 79
     8: 0208 0010  MOV max, #bits
    10: 0308 0064  MOV b, #b_start
    12: 7101       IN n
@@ -50,7 +47,7 @@
    47: 0408 0000  MOV d, 0
    49: 07B0       MOV znak, (b)
    50: 5708 0036  BEQ znak, 0, pretv
-   52: D000 0042  JSR kompl2
+   52: D000 0043  JSR komp2
    54: B440 0002  pretv: MUL d, d, 2
    56: 144B       ADD d, d, (b)
    57: 9330 0001  ADD b, b, 1
@@ -58,15 +55,11 @@
    61: 5708 0041  BEQ znak, 0, izlaz
    63: B440 FFFF  MUL d, d, -1
    65: E000       izlaz: RTS 
-   66: 0520       kompl2: MOV bit, max
-   67: A550 0001  pret: SUB bit, bit, 1
-   69: 5D08 0043  BEQ (bit), 0, pret
-   71: A550 0001  SUB bit, bit, 1
-   73: 6358 0041  zameni: BGT b, bit, izlaz
-   75: 5D08 0051  BEQ (bit), 0, mov1
-   77: 0D08 0000  MOV (bit), 0
-   79: 5118 0053  BEQ n, n, pret_
-   81: 0D08 0001  mov1: MOV (bit), 1
-   83: A550 0001  pret_: SUB bit, bit, 1
-   85: 5118 0049  BEQ n, n, zameni
-   87: E000       izlaz_: RTS 
+   66: 0520       MOV bit, max
+   67: A550 0001  komp2: SUB bit, bit, 1
+   69: 5D08 0043  BEQ (bit), 0, komp2
+   71: A550 0001  zameni: SUB bit, bit, 1
+   73: 6358 004F  BGT b, bit, izlaz_
+   75: AD0D 0001  SUB (bit), 1, (bit)
+   77: 5118 0047  BEQ n, n, zameni
+   79: E000       izlaz_: RTS 

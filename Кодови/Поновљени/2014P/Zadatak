@@ -1,0 +1,53 @@
+		N = 1
+		Q = 2
+		A = 3
+		krajA = 4
+		R = 5
+		M = 6
+		J = 7
+		
+		adrA = 100
+		
+		
+		ORG 8 
+		
+unos:	IN N ; provera da li je N ispravno
+		MOV M, 2
+		BGT M, N, kraj
+		MOV M, 100
+		BGT N, M, kraj
+		
+		MOV A, #adrA ; unos elemenata niza i broja q
+		IN (A), N	
+		IN Q
+	
+		SUB A, A, 1 ; A inkrementiramo pre prvog poredjenja
+					; zato je ovde dekrementirano
+		ADD krajA, A, N ; adresa kraja niza je A + N -1			
+		MOV R, 0	; najveca apsolutna vrednost je 0 na pocetku
+		
+		JSR aps
+		OUT R
+		BEQ A, A, unos ; bezuslovni skok
+kraj:	STOP
+
+aps: 	BEQ A, krajA, krajpp ; ako je A poslednji element, izadji iz pp
+		ADD A, A, 1 
+		MOV J, A ; adresa sledeceg elementa
+		BGT (A), Q, aps ; Q mora biti vece od (A)
+		BEQ (A), Q, aps
+petlja: BEQ J, krajA, aps ; ako je J poslednji element, predji na naredno A
+		ADD J, J, 1
+		BGT Q, (J), petlja ; (J) mora biti vece od Q
+		BEQ Q, (J), petlja
+		SUB M, (J), (A)
+		BGT M, 0, poz ; ako je razlika pozitivna
+					; onda je ona i apsolutna vrednost razlike
+		MUL M, M, -1 ; u suporotnom, pomnozimo je sa -1
+	poz:BGT R, M, petlja ; ako je trenutna najveca aps. vrednost 
+						; veca od trenutne, ne azuriraj
+		MOV R, M
+		BEQ A, A, petlja
+		
+krajpp: RTS
+		

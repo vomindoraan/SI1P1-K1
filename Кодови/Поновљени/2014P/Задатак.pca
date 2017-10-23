@@ -1,4 +1,14 @@
-		N = 1
+; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Ponovljen prvi kolokvijum 2014/2015
+; Zadatak
+;
+; Autor: Stefan Borovic
+; github.com/vomindoraan, 2017
+        
+        N = 1
 		Q = 2
 		A = 3
 		krajA = 4
@@ -30,6 +40,8 @@ unos:	IN N ; provera da li je N ispravno
 		OUT R
 		BEQ A, A, unos ; bezuslovni skok
 kraj:	STOP
+
+    ;;; Potprogrami ;;;
 
 aps: 	BEQ A, krajA, krajpp ; ako je A poslednji element, izadji iz pp
 		ADD A, A, 1 

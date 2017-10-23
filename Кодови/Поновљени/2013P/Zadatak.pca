@@ -1,0 +1,67 @@
+		N = 1
+		M = 2
+		A = 3
+		J = 4
+		T = 5
+		P = 6
+		R = 7
+		
+		adrA = 100
+		ORG 8 
+		
+unos:	IN N ; unos N i provera da li je izmedju 4 i 100
+		MOV M, 4 
+		BGT M, N, kraj
+		MOV M, 100
+		BGT N, M, kraj
+		MOV A, #adrA
+		IN (A), N
+		
+		MOV T, 0 ; rezultat
+		MOV P, 0 ; broj prevoja
+		MOV R, 0 ; zastavica za rastenje
+		MOV M, 0 ; zastavica za opadanje
+		SUB A, A, 1 ; posto u pp. sek prvo inkrementiramo adrese,
+		ADD J, A, 1	; ovde ih inicijalno dekrementiramo
+
+		JSR sek
+		
+		MOV M, 1 
+		BEQ P, M, racunaj ; ukoliko je broj prevoja tacno 1, 
+						  ; treba vratiti 1 ili 2
+		OUT T ; ukoliko je broj prevoja razlicit od 1, vracamo 0
+		BEQ A, A, unos ; bezuslovni skok na unos
+kraj:	STOP
+		
+racunaj:MOV T, 1  ; pretpostavimo da je prvo rastuci, pa opadajuci
+		BGT (J), (A), oprast ; ukoliko nije, prvo je opadajuci, pa rastuci
+							 ; to znaci da je poslednji element veci od pretp.
+		OUT T
+		BEQ A, A, unos ; bezuslovni skok na unos
+		
+oprast: MOV T, 2 ; ukoliko je prvo opadajuci pa rastuci, rezultat je 2
+		OUT T
+		BEQ A, A, unos ; bezuslovni skok na unos
+
+sek:   	SUB N, N, 1 ; broj poredjenja (= broj clanova niza minus 1)
+		BEQ N, 0, krajpp
+		ADD A, A, 1 ; uvecavanje adresa
+		ADD J, J, 1
+		BGT (J), (A), ra ; ako je naredni clan veci od trenutnog, idi na ra
+		BGT (A), (J), op ; odnosno op
+		MOV P, 0 ; kada su dva elementa jednaka, broj prevoja vracamo na 0
+				 ; posto utice na racunanje rezultata
+krajpp:	RTS
+		
+ra:		MOV R, 1 ; postavi zastavicu za rastenje na 1
+		BEQ M, 0, sek ; ako je prethodno bilo rastenje, idi na sek
+		ADD P, P, 1 ; ali ako nije, prvo uvecaj broj prevoja
+		MOV M, 0
+		BEQ A, A, sek
+	
+op:		MOV M, 1 ; postavi zastavicu za opadanje na 1
+		BEQ R, 0, sek ; ako je prethodno bilo opadanje, idi na sek
+		ADD P, P, 1 ; ali ako nije, prvo uvecaj broj prevoja
+		MOV R, 0
+		BEQ A, A, sek
+			

@@ -1,4 +1,14 @@
-		N = 1
+; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Ponovljen prvi kolokvijum 2013/2014
+; Zadatak
+;
+; Autor: Stefan Borovic
+; github.com/vomindoraan, 2017
+        
+        N = 1
 		M = 2
 		A = 3
 		J = 4
@@ -42,6 +52,9 @@ racunaj:MOV T, 1  ; pretpostavimo da je prvo rastuci, pa opadajuci
 oprast: MOV T, 2 ; ukoliko je prvo opadajuci pa rastuci, rezultat je 2
 		OUT T
 		BEQ A, A, unos ; bezuslovni skok na unos
+        
+        
+    ;;; Potprogrami ;;;
 
 sek:   	SUB N, N, 1 ; broj poredjenja (= broj clanova niza minus 1)
 		BEQ N, 0, krajpp

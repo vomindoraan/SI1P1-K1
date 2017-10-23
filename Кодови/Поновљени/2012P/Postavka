@@ -1,7 +1,0 @@
-1)Napisati potprogram na simboličkom mašinskom jeziku za picoComputer koji proverava da li se niz
-B od N elemenata sadrži u nizu A od M elemenata (N≤M). Napisati glavni program koji prvo učita
-dužinu nizova, onda učita dva niza celih brojeva, a zatim koristeći realizovani potprogram utvrdi da li
-se drugi niz sadrži unutar prvog. Ukoliko se sadrži, program treba da ispiše vrednost 1, u suprotnom
-treba da ispiše vrednost 0. Smatrati da je dužina početnih nizova najviše 100 elemenata. Program
-treba da ponavlja opisani postupak sve dok se za dužinu početnih nizova ne unese nekorektna
-vrednost.

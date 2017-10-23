@@ -1,0 +1,46 @@
+		A = 1
+		B = 2
+		N = 3
+		M = 4
+		T = 5
+		I = 6
+		J = 7
+		adrB = 100
+		adrA = 200
+		
+		ORG 8
+	
+		MOV T, 100 ; maksimalna duzina ma kog niza
+		MOV A, #adrA ; pocetne adrese
+		MOV B, #adrB
+		IN N ; unos duzina
+		IN M
+		BGT 0, N, kraj ; duzine ne smeju biti negativne ili 0
+		BEQ 0, N, kraj	
+		BGT 0, M, kraj 
+		BEQ 0, M, kraj
+		BGT M, T, kraj ; ako je M manje od 100 i vece od N
+		BGT N, M, kraj ; i N je manje od sto
+		IN (B), N
+		IN (A), M
+		MOV J, 0 ; brojac za B
+		JSR sadrzi
+		OUT T
+kraj:	STOP
+
+sadrzi: MOV I, 0 ; resetuj adresu A i brojac za A
+		MOV A, #adrA
+petlja:	MOV T, 0 ; resetuj zastavicu T
+		BEQ (B), (A), da ; ako (B) == (A), ne poredi dalje isto (B)
+		ADD A, A, 1
+		ADD I, I, 1
+		BGT M, I, petlja 
+		RTS ; ako neko (B) nije jednako nijednom (A)
+			; niz B se ne sadrzi u A (zastavica T ce biti O)
+		
+	da:	MOV T, 1 ; postavi zastavicu T na 1
+		ADD J, J, 1 
+		ADD B, B, 1
+		BGT N, J, sadrzi
+		RTS ; ako se i poslednje (B) nalazi u A, 
+			; i niz B se sadrzi u A (zastavica T ce biti 1)

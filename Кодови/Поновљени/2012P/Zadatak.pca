@@ -1,4 +1,15 @@
-		A = 1
+; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Ponovljen prvi kolokvijum 2010/2011
+; Zadatak
+;
+; Autor: Stefan Borovic
+; github.com/vomindoraan, 2017
+        
+        
+        A = 1
 		B = 2
 		N = 3
 		M = 4
@@ -27,6 +38,8 @@
 		JSR sadrzi
 		OUT T
 kraj:	STOP
+
+    ;;; Potprogrami ;;;
 
 sadrzi: MOV I, 0 ; resetuj adresu A i brojac za A
 		MOV A, #adrA

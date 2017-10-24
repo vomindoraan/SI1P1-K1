@@ -1,0 +1,67 @@
+; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Ponovljen prvi kolokvijum 2016/2017
+; Zadatak
+;
+; Autor: Stefan Borovic
+; github.com/vomindoraan, 2017
+
+		N = 1
+		M = 2
+		A = 3
+		krajA = 4
+		P = 5
+		T = 6
+		R = 7
+		adrA = 100
+		
+		ORG 8 
+		
+		IN N ; ucitaj adekvatno N
+		BGT 0, N, kraj
+		BEQ N, 0, kraj
+		MOV M, 100
+		BGT N, M, kraj
+		
+		MOV A, #adrA ; postavi adresu prvog el. iz A
+		ADD krajA, A, N ; postavi adresu posl. el. iz A
+		SUB krajA, krajA, 1
+		
+		IN (A), N
+		JSR vecih
+		
+kraj:	STOP
+
+vecih:  BGT A, krajA, krajpp
+		MOV R, 0 ; resetuj brojac vecih el. iz okoline
+		MOV P, 0 ; resetuj velicinu okoline
+		JSR izracp ; skoci na pp. za izracunavanje velicine okoline
+		
+		BEQ P, 0, ispis ; ako je velicina okoline nula, i R = 0
+		SUB T, A, P ; levu okolinu proveravamo od pocetka
+petlja1:BGT (A), (T), pr2 ; povecaj R samo ako je (T) vece od (A)
+		BEQ (A), (T), pr2
+		ADD R, R, 1
+pr2:	ADD T, T, 1 ; zato T inkrementiramo
+		BGT A, T, petlja1 ; kada je T = A, predjimo na desnu okolinu
+		ADD T, A, P ; desnu okolinu proveravamo od kraja
+petlja2:BEQ T, A, ispis
+		BGT (A), (T), pr3 ; povecaj R samo ako je (T) vece od (A)
+		BEQ (A), (T), pr3
+		ADD R, R, 1
+pr3:	SUB T, T, 1 ; zato T dekrementiramo
+		BEQ A, A, petlja2
+		
+ispis:	OUT R ; ispis broja vecih el. iz okoline
+		ADD A, A, 1
+		BEQ A, A, vecih
+
+krajpp:	RTS
+
+izracp:	SUB T, A, #adrA ; velicina okoline je manja od dve razlike
+		SUB P, krajA, A
+		BGT T, P, pr1
+		MOV P, T
+pr1:	RTS

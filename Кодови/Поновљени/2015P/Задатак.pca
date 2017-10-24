@@ -1,0 +1,70 @@
+; Univerzitet u Beogradu, Elektrotehnicki fakultet
+; Odsek za softversko inzenjerstvo
+; Programiranje 1 (13S111P1)
+;
+; Ponovljen prvi kolokvijum 2015/2016
+; Zadatak
+;
+; Autor: Stefan Borovic
+; github.com/vomindoraan, 2017
+    
+    N = 1
+		M = 2
+		A = 3
+		J = 4
+		krajA = 5
+		maksbin = 6
+		B = 7
+		adrA = 100
+		adrB = 200
+		
+		ORG 8 
+		
+		IN N ; ucitaj adekvatno N
+		MOV M, 100
+		BGT 0, N, kraj
+		BEQ N, 0, kraj
+		BGT N, M, kraj
+		
+		MOV A, #adrA ; postavi pocetne adrese nizova A i B
+		MOV B, #adrB
+		ADD krajA, A, N ; postavi krajA na adresu poslednjeg elementa iz A
+		SUB krajA, krajA, 1
+		MOV maksbin, 0 ; na pocetku je najveci broj bin. jedinica nula
+		IN (A), N ; ucitaj niz A
+		JSR bin
+		
+		MOV A, #adrA ; resetuj pocetne adrese nizova A i B
+		MOV B, #adrB
+ispis:	BGT A, krajA, kraj
+		BGT maksbin, (B), pr2 ; ispisi (A) u slucaju
+		OUT (A) ; da je broj njegovih bin. jedinica jednak maksbin
+pr2:	ADD A, A, 1 ; uvecavanje adresa A i B
+		ADD B, B, 1
+		BEQ A, A, ispis			
+kraj:	STOP	
+	
+	;;; Potprogrami ;;;
+		
+bin:	MOV J, 0 ; resetovanje brojaca binarnih jedinica (A)
+		BGT A, krajA, krajpp
+		MOV N, (A) ; ne zelimo da unistimo (A)
+		BGT N, 0, petlja ; ako je N negativan, ucinimo ga pozitivnim
+		MUL N, N, -1 
+		
+petlja:	DIV M, N, 2 ; algoritam za pretvaranje dec u bin
+		MUL M, M, 2
+		SUB M, N, M 
+		ADD J, J, M ; ostatak moze biti 0 ili 1, zato ovako mozemo
+					; uvecavati brojac binarnih jedinica broja N = (A) 
+dalje:	DIV N, N, 2 ; priprema N za narednu iteraciju
+		BGT N, 0, petlja ; deli N dok god nije 0
+		
+		MOV (B), J ; upisi broj binarnih jedinica (A) u (B)
+		BGT maksbin, J, pr1 ; azuriraj najveci broj bin. jedinica
+		MOV maksbin, J
+pr1: 	ADD A, A, 1 ; uvecavanje adresa A i B
+		ADD B, B, 1
+		BEQ A, A, bin
+		
+krajpp: RTS		
